@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="950" viewBox="0 0 720 950" role="img" aria-label="Global scope versus scoped constraints">
+<style>
+text { font-family: "JetBrains Mono", "SFMono-Regular", Menlo, monospace; font-size: 12px; fill: #111111; }
+.h3 { font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; font-size: 18px; font-weight: 600; }
+.sub { font-size: 15px; font-weight: 400; }
+.t-h { font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; font-weight: 600; font-size: 13px; }
+.legend { fill: #5f5f5f; }
+.line { stroke: rgba(0,0,0,0.12); }
+.v-chip { fill: rgba(68,97,105,0.14); } .v-txt { fill: #446169; }
+.j-chip { fill: rgba(231,33,100,0.12); } .j-txt { fill: #e72164; }
+.doc { fill: #f5f4f5; stroke: rgba(0,0,0,0.12); }
+.bar { fill: rgba(0,0,0,0.12); }
+.cone-v { fill: #446169; opacity: .10; } .cone-j { fill: #e72164; opacity: .10; }
+.arrow { stroke: #5f5f5f; stroke-width: 1.2; fill: none; }
+.arrow-v { stroke: #446169; } .arrow-j { stroke: #e72164; }
+.badge { fill: #111111; } .badge-t { fill: #ffffff; font-size: 11px; font-weight: 500; }
+</style>
+<rect width="720" height="950" fill="#ffffff"/>
+<rect x="24" y="24" width="672" height="421.1" fill="#ffffff" stroke="rgba(0,0,0,0.12)"/>
+<text class="h3" x="44" y="62">Global scope <tspan class="sub" fill="#5f5f5f">(IFEval, IFBench, MOSAIC, …)</tspan></text>
+<g transform="translate(44,88) scale(1.1286)">
+        <g>
+          <rect class="v-chip" x="14" y="14" width="118" height="26" rx="13"/><text class="v-txt" x="73" y="31" text-anchor="middle">in German</text>
+          <rect class="v-chip" x="146" y="14" width="130" height="26" rx="13"/><text class="v-txt" x="211" y="31" text-anchor="middle">"tournament" ≥3</text>
+          <rect class="j-chip" x="290" y="14" width="118" height="26" rx="13"/><text class="j-txt" x="349" y="31" text-anchor="middle">has a table</text>
+          <rect class="j-chip" x="422" y="14" width="124" height="26" rx="13"/><text class="j-txt" x="484" y="31" text-anchor="middle">covers origins</text>
+        </g>
+        <polygon class="cone-v" points="40,40 106,40 440,96 120,96"/>
+        <polygon class="cone-v" points="172,40 250,40 440,96 120,96"/>
+        <polygon class="cone-j" points="316,40 382,40 440,96 120,96"/>
+        <polygon class="cone-j" points="450,40 518,40 440,96 120,96"/>
+        <rect class="doc" x="120" y="96" width="320" height="190"/>
+        <g class="bar">
+          <rect x="140" y="116" width="280" height="6"/><rect x="140" y="130" width="250" height="6"/><rect x="140" y="144" width="270" height="6"/>
+          <rect x="140" y="166" width="280" height="6"/><rect x="140" y="180" width="200" height="6"/><rect x="140" y="194" width="260" height="6"/>
+          <rect x="140" y="216" width="280" height="6"/><rect x="140" y="230" width="230" height="6"/><rect x="140" y="244" width="275" height="6"/><rect x="140" y="258" width="180" height="6"/>
+        </g>
+
+      </g>
+<rect x="24" y="465.0857142857143" width="672" height="421.1" fill="#ffffff" stroke="rgba(0,0,0,0.12)"/>
+<text class="h3" x="44" y="503.0857142857143">Scoped <tspan class="sub" fill="#e72164">(LIFT, structured tasks)</tspan></text>
+<g transform="translate(44,529.0857142857143) scale(1.1286)">
+        <text class="t-h" x="14" y="24"># Ice Hockey World Championships</text>
+        <line class="line" x1="22" y1="34" x2="22" y2="276" stroke-width="1"/>
+        <!-- section 1 -->
+        <line class="line" x1="22" y1="56" x2="34" y2="56"/>
+        <text class="t-h" x="40" y="60">## History and significance</text>
+        <rect class="doc" x="40" y="68" width="250" height="48"/>
+        <g class="bar"><rect x="52" y="80" width="200" height="5"/><rect x="52" y="92" width="226" height="5"/><rect x="52" y="104" width="160" height="5"/></g>
+        <rect class="v-chip" x="330" y="64" width="118" height="24" rx="12"/><text class="v-txt" x="389" y="80" text-anchor="middle">in German</text>
+        <rect class="j-chip" x="330" y="94" width="124" height="24" rx="12"/><text class="j-txt" x="392" y="110" text-anchor="middle">covers origins</text>
+        <line class="arrow arrow-v" x1="330" y1="76" x2="290" y2="80"/>
+        <line class="arrow arrow-j" x1="330" y1="106" x2="290" y2="100"/>
+        <circle class="badge" cx="300" cy="56" r="9"/><text class="badge-t" x="300" y="60" text-anchor="middle">2</text>
+        <!-- section 2 -->
+        <line class="line" x1="22" y1="148" x2="34" y2="148"/>
+        <text class="t-h" x="40" y="152">## Format and qualification</text>
+        <rect class="doc" x="40" y="160" width="250" height="48"/>
+        <g class="bar"><rect x="52" y="172" width="226" height="5"/><rect x="52" y="184" width="180" height="5"/><rect x="52" y="196" width="210" height="5"/></g>
+        <rect class="j-chip" x="330" y="172" width="118" height="24" rx="12"/><text class="j-txt" x="389" y="188" text-anchor="middle">has a table</text>
+        <line class="arrow arrow-j" x1="330" y1="184" x2="290" y2="184"/>
+        <circle class="badge" cx="300" cy="148" r="9"/><text class="badge-t" x="300" y="152" text-anchor="middle">1</text>
+        <!-- section 3 -->
+        <line class="line" x1="22" y1="240" x2="34" y2="240"/>
+        <text class="t-h" x="40" y="244">## Notable moments and records</text>
+        <rect class="doc" x="40" y="252" width="250" height="48"/>
+        <g class="bar"><rect x="52" y="264" width="210" height="5"/><rect x="52" y="276" width="226" height="5"/><rect x="52" y="288" width="140" height="5"/></g>
+        <rect class="v-chip" x="330" y="264" width="130" height="24" rx="12"/><text class="v-txt" x="395" y="280" text-anchor="middle">"tournament" ≥3</text>
+        <line class="arrow arrow-v" x1="330" y1="276" x2="290" y2="276"/>
+        <circle class="badge" cx="300" cy="240" r="9"/><text class="badge-t" x="300" y="244" text-anchor="middle">1</text>
+
+      </g>
+<circle cx="29" cy="910.1714285714286" r="5" fill="#446169"/><text class="legend" x="40" y="914.1714285714286">verifiable (deterministic checker)</text>
+<circle cx="309" cy="910.1714285714286" r="5" fill="#e72164"/><text class="legend" x="320" y="914.1714285714286">judged (LM judge, generated criteria)</text>
+</svg>

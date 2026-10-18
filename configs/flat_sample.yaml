@@ -1,0 +1,39 @@
+pipeline_infra:
+  max_examples: 5
+  pipeline_name: flat_sample
+  test_size: 1
+  train_size:
+doc_outline:
+  document_outline_model_name: Qwen/Qwen2.5-32B-Instruct
+  document_outline_batch_size: 20
+  document_outline_max_tokens: 2048
+  document_outline_temperature: 0.6
+  doc_template_max_children: 3
+  doc_template_max_depth: 2
+  doc_template_verbalizer_name: headers
+llm_judge_constraint_generation:
+  content_constraints_model_name: Qwen/Qwen2.5-32B-Instruct
+  content_constraints_max_tokens: 2048
+  content_constraints_temperature: 0.6
+  max_content_constraints: 2
+  max_artifact_constraints: 2
+  content_eval_type: light_critic
+  artifact_eval_type: light_critic
+  llm_judge_constraint_critic_model_name: google/gemma-4-31B-it
+  llm_judge_constraint_critic_n: 1
+  llm_judge_constraint_critic_temperature: 0.6
+  llm_judge_constraint_critic_max_tokens: 2048
+llm_judge_constraint_sampling:
+  non_verified_max_sampled_constraints: 3
+  non_verified_sample_per_header: true
+  non_verified_max_sampled_headers: 7
+  non_verified_exact_sampling: false
+verifiable_constraint_sampling:
+  verified_max_sampled_constraints: 3
+  verified_sample_per_header: true
+  verified_max_sampled_headers: 7
+  verified_exact_sampling: false
+  keyword_generation_model_name: Qwen/Qwen2.5-32B-Instruct
+  keyword_generation_max_retries: 3
+drafting_task:
+  task_mode: flat

@@ -1,0 +1,88 @@
+{"document": "bold", "markdown": "# Title\n\n## Sec\n\nThis is **bold** and *ital* and __b2__ and _i2_ text.\n"}
+{"document": "nested_list", "markdown": "# T\n\n## S\n\n- a\n  - a1\n  - a2\n- b\n"}
+{"document": "ordered_list", "markdown": "# T\n\n## S\n\n3. x\n4. y\n"}
+{"document": "star_list", "markdown": "# T\n\n## S\n\n* **Key**: value\n* plain\n"}
+{"document": "loose_list", "markdown": "# T\n\n## S\n\n- a\n\n  second para of a\n\n- b\n"}
+{"document": "table", "markdown": "# T\n\n## S\n\n| A | **B** |\n|:---|---:|\n| 1 | `x` |\n|  | 3 |\n"}
+{"document": "table_inline_pipe", "markdown": "# T\n\n## S\n\n| A | B |\n|---|---|\n| a \\| b | c |\n"}
+{"document": "code", "markdown": "# T\n\n## S\n\n```python\nprint('hi')\n```\n"}
+{"document": "code_tilde", "markdown": "# T\n\n## S\n\n~~~\nx = 1\n~~~\n"}
+{"document": "indented_code", "markdown": "# T\n\n## S\n\nPara.\n\n    indented code\n"}
+{"document": "h3_under_h2", "markdown": "# T\n\n## S\n\nIntro para.\n\n### Sub\n\nSub para.\n\n## S2\n\nOther.\n"}
+{"document": "h1_to_h3", "markdown": "# T\n\n### Deep\n\nText.\n"}
+{"document": "no_h1", "markdown": "## S\n\nText.\n"}
+{"document": "preamble", "markdown": "Preamble text.\n\n# T\n\n## S\n\nBody.\n"}
+{"document": "two_h1", "markdown": "# A\n\n## S\n\nx\n\n# B\n\n## S\n\ny\n"}
+{"document": "heading_trailing_hashes", "markdown": "# Title #\n\n## Sec ##\n\nBody.\n"}
+{"document": "setext", "markdown": "Title\n=====\n\nSec\n---\n\nBody.\n"}
+{"document": "stray_asterisks", "markdown": "# T\n\n## S\n\nCompute 2 * 3 * 4 and \\*lit\\*.\n"}
+{"document": "link_inline_code", "markdown": "# T\n\n## S\n\nSee [the docs](http://example.com) and `code` and ~~strike~~ here.\n"}
+{"document": "line_breaks", "markdown": "# T\n\n## S\n\nline one\nline two  \nline three\n"}
+{"document": "blockquote", "markdown": "# T\n\n## S\n\n> quoted text\n\nAfter.\n"}
+{"document": "hr_html", "markdown": "# T\n\n## S\n\nA.\n\n---\n\n<div>html</div>\n\nB.\n"}
+{"document": "multi_p", "markdown": "# T\n\n## S\n\nP0.\n\n- l\n\nP1.\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\nP2.\n"}
+{"document": "empty", "markdown": ""}
+{"document": "unicode_emoji", "markdown": "# Título 🚀\n\n## Sección\n\nTexto con émojis 😀 y ñ.\n"}
+{"document": "list_item_code", "markdown": "# T\n\n## S\n\n- item\n\n  ```\n  code in item\n  ```\n"}
+{"document": "unclosed_fence", "markdown": "# T\n\n## S\n\n```\nnot closed\n"}
+{"document": "only_heading", "markdown": "# T\n\n## S\n"}
+{"document": "escaped_md", "markdown": "# T\n\n## S\n\nUse 5 < 6 & 7 > 3, a_b_c, and #hashtag.\n"}
+{"document": "cases2:hr_only", "markdown": "# T\n\n## S\n\nA.\n\n---\n\nB.\n"}
+{"document": "cases2:html_only", "markdown": "# T\n\n## S\n\nA.\n\n<div>html</div>\n\nB.\n"}
+{"document": "cases2:plus_bullets", "markdown": "# T\n\n## S\n\n+ a\n+ b\n"}
+{"document": "cases2:paren_ordered", "markdown": "# T\n\n## S\n\n1) a\n2) b\n"}
+{"document": "cases2:table_no_pipes", "markdown": "# T\n\n## S\n\nA | B\n--|--\n1 | 2\n"}
+{"document": "cases2:table_ragged", "markdown": "# T\n\n## S\n\n| A | B | C |\n|---|---|---|\n| 1 | 2 |\n| 1 | 2 | 3 | 4 |\n"}
+{"document": "cases2:two_lists", "markdown": "# T\n\n## S\n\n1. a\n2. b\n\n- c\n- d\n"}
+{"document": "cases2:task_list", "markdown": "# T\n\n## S\n\n- [ ] todo\n- [x] done\n"}
+{"document": "cases2:image", "markdown": "# T\n\n## S\n\n![alt text](http://x/y.png)\n\nAfter.\n"}
+{"document": "cases2:crlf", "markdown": "# T\r\n\r\n## S\r\n\r\nBody one.\r\n\r\nBody two.\r\n"}
+{"document": "cases2:ctrl_chars", "markdown": "# T\n\n## S\n\nA\u000bB\u0000C.\n"}
+{"document": "cases2:no_blank_after_heading", "markdown": "# T\n## S\nBody line.\n- item\n"}
+{"document": "cases2:h4", "markdown": "# T\n\n## S\n\n#### Deep\n\nD.\n"}
+{"document": "cases2:four_backticks", "markdown": "# T\n\n## S\n\n````md\n```inner```\n````\n"}
+{"document": "cases2:inline_html_br", "markdown": "# T\n\n## S\n\nA<br>B and <b>bold</b>.\n"}
+{"document": "cases2:list_item_multiline", "markdown": "# T\n\n## S\n\n- first line\n  continued\n- b\n"}
+{"document": "cases2:list_item_ital_bold", "markdown": "# T\n\n## S\n\n- *ital* and __und__ and ***both***\n"}
+{"document": "cases2:nested_ordered", "markdown": "# T\n\n## S\n\n1. a\n   1. a1\n2. b\n"}
+{"document": "cases2:think", "markdown": "<think>\nreason\n</think>\n# T\n\n## S\n\nBody.\n"}
+{"document": "cases2:para_trailing_spaces", "markdown": "# T\n\n## S\n\n  Leading and trailing.   \n"}
+{"document": "cases2:emoji_heading", "markdown": "# T\n\n## 🚀 Launch\n\nBody.\n"}
+{"document": "cases2:table_then_text", "markdown": "# T\n\n## S\n\n| a | b |\n|---|---|\n| 1 | 2 |\nNot a row\n"}
+{"document": "cases2:code_in_list_selector", "markdown": "# T\n\n## S\n\n- item\n  ```\n  x\n  ```\n"}
+{"document": "cases2:p_with_inline_code_only", "markdown": "# T\n\n## S\n\n`only code`\n"}
+{"document": "cases2:dash_hr_like_setext", "markdown": "# T\n\n## S\n\nText\n---\n\nMore.\n"}
+{"document": "cases3:md_fence_wrapped", "markdown": "```markdown\n# T\n\n## S\n\nBody.\n```"}
+{"document": "cases3:md_fence_wrapped_ws", "markdown": "\n```markdown\n# T\n\n## S\n\nBody.\n```\n\n"}
+{"document": "cases3:md_short_fence", "markdown": "```md\n# T\n\n## S\n\nBody.\n```"}
+{"document": "cases3:md_fence_with_intro", "markdown": "Here is the doc:\n```markdown\n# T\n\n## S\n\nBody.\n```"}
+{"document": "cases4:hr_dash", "markdown": "# T\n\n## S\n\nAlpha.\n\n---\n\nBeta.\n"}
+{"document": "cases4:html_block", "markdown": "# T\n\n## S\n\nAlpha.\n\n<div>html</div>\n\nBeta.\n"}
+{"document": "cases4:h4", "markdown": "# T\n\n## S\n\nAlpha.\n\n#### Deep\n\nDelta.\n"}
+{"document": "cases4:alpha_list", "markdown": "# T\n\n## S\n\nA. First option\nB. Second option\n"}
+{"document": "cases4:alpha_para", "markdown": "# T\n\n## S\n\nA. Smith wrote this.\n"}
+{"document": "cases4:lower_alpha_paren", "markdown": "# T\n\n## S\n\na) one\nb) two\n"}
+{"document": "cases4:roman", "markdown": "# T\n\n## S\n\ni. one\nii. two\n"}
+{"document": "two_paras", "markdown": "# T\n\n## S\n\nPara one.\n\nPara two.\n"}
+{"document": "soft_break_list", "markdown": "# T\n\n## S\n\n- first line\n  continued\n- second\n"}
+{"document": "lazy_list", "markdown": "# T\n\n## S\n\n- item\nlazy continuation\n"}
+{"document": "loose_list_bold", "markdown": "# T\n\n## S\n\n1. **Step one**: do x\n\n2. Step two\n"}
+{"document": "plus_bullets", "markdown": "# T\n\n## S\n\n+ a\n+ b\n"}
+{"document": "task_list", "markdown": "# T\n\n## S\n\n- [ ] todo\n- [x] done\n"}
+{"document": "alpha_list", "markdown": "# T\n\n## S\n\nA. First option\nB. Second option\n"}
+{"document": "alpha_paren", "markdown": "# T\n\n## S\n\na) first\nb) second\n"}
+{"document": "roman_list", "markdown": "# T\n\n## S\n\ni. one\nii. two\niii. three\n"}
+{"document": "code_then_p", "markdown": "# T\n\n## S\n\nIntro.\n\n```python\nx = 1\ny = 2\n```\n\nOutro.\n"}
+{"document": "inline_code_p", "markdown": "# T\n\n## S\n\nUse `foo()` and `bar()` here.\n\n```\nsingle\n```\n"}
+{"document": "image_p", "markdown": "# T\n\n## S\n\n![alt text](http://x/y.png)\n\nAfter.\n"}
+{"document": "md_fence_wrap", "markdown": "```markdown\n# T\n\n## S\n\nBody.\n```"}
+{"document": "ragged_table", "markdown": "# T\n\n## S\n\n| a | b | c |\n|---|---|---|\n| 1 | 2 |\n| 3 | 4 | 5 | 6 |\n"}
+{"document": "table_trailing", "markdown": "# T\n\n## S\n\n| a | b |\n|---|---|\n| 1 | 2 |\nNot a row\n"}
+{"document": "html_inline", "markdown": "# T\n\n## S\n\nLine<br>break and <b>bold</b> and <i>it</i>.\n"}
+{"document": "strike_code", "markdown": "# T\n\n## S\n\nKeep ~~gone~~ and `kept` and **b** and _i_.\n"}
+{"document": "hard_break", "markdown": "# T\n\n## S\n\nline a  \nline b\\\nline c\n"}
+{"document": "nested_ordered", "markdown": "# T\n\n## S\n\n1. a\n   1. a1\n   2. a2\n2. b\n"}
+{"document": "list_then_para", "markdown": "# T\n\n## S\n\n- x\n- y\n\nAfter list.\n"}
+{"document": "multi_tables", "markdown": "# T\n\n## S\n\n| a |\n|---|\n| 1 |\n\nMid.\n\n| b |\n|---|\n| 2 |\n"}
+{"document": "deep_h3", "markdown": "# T\n\n## S\n\nP.\n\n### Sub\n\n- l1\n\n#### Deeper\n\nQ.\n"}
+{"document": "blank_lines_list", "markdown": "# T\n\n## S\n\n- a\n\n\n- b\n- c\n"}

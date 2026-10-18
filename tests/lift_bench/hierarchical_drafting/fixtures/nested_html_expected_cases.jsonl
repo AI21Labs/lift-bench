@@ -1,0 +1,434 @@
+{"document": "bold", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## Sec\n\nThis is **bold** and ital and **b2** and i2 text."}
+{"document": "bold", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "This is **bold** and ital and **b2** and i2 text."}
+{"document": "bold", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "Sec"}
+{"document": "bold", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "This is **bold** and ital and **b2** and i2 text."}
+{"document": "bold", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "nested_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- a\n\t- a1\n\t- a2\n- b"}
+{"document": "nested_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- a\n\t- a1\n\t- a2\n- b"}
+{"document": "nested_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "nested_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "nested_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- a\n\t- a1\n\t- a2\n- b"}
+{"document": "ordered_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n1. x\n2. y"}
+{"document": "ordered_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "1. x\n2. y"}
+{"document": "ordered_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "ordered_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "ordered_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "1. x\n2. y"}
+{"document": "star_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n* **Key**: value\n* plain"}
+{"document": "star_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "* **Key**: value\n* plain"}
+{"document": "star_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "star_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "star_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "* **Key**: value\n* plain"}
+{"document": "loose_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- a second para of a\n- b"}
+{"document": "loose_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- a second para of a\n- b"}
+{"document": "loose_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "loose_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "loose_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- a second para of a\n- b"}
+{"document": "table", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| A | B |\n| --- | --- |\n| 1 | x |\n|  | 3 |"}
+{"document": "table", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| A | B |\n| --- | --- |\n| 1 | x |\n|  | 3 |"}
+{"document": "table", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "table", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "table", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| A | B |\n| --- | --- |\n| 1 | x |\n|  | 3 |"}
+{"document": "table", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| A | B |"}
+{"document": "table_inline_pipe", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| A | B |\n| --- | --- |\n| a | b | c |"}
+{"document": "table_inline_pipe", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| A | B |\n| --- | --- |\n| a | b | c |"}
+{"document": "table_inline_pipe", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "table_inline_pipe", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "table_inline_pipe", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| A | B |\n| --- | --- |\n| a | b | c |"}
+{"document": "table_inline_pipe", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| A | B |"}
+{"document": "code", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n```python\nprint('hi')\n```"}
+{"document": "code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "```python\nprint('hi')\n```"}
+{"document": "code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "```python\nprint('hi')\n```"}
+{"document": "code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "code", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "```python\nprint('hi')\n```"}
+{"document": "code_tilde", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n`x = 1`"}
+{"document": "code_tilde", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "`x = 1`"}
+{"document": "code_tilde", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "code_tilde", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "`x = 1`"}
+{"document": "code_tilde", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "code_tilde", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`x = 1`"}
+{"document": "indented_code", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nPara.\n\n`indented code`"}
+{"document": "indented_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Para.\n\n`indented code`"}
+{"document": "indented_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "indented_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Para."}
+{"document": "indented_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "`indented code`"}
+{"document": "indented_code", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "indented_code", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`indented code`"}
+{"document": "h3_under_h2", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nIntro para.\n\n### Sub\n\nSub para.\n\n## S2\n\nOther."}
+{"document": "h3_under_h2", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Intro para.\n\n### Sub\n\nSub para."}
+{"document": "h3_under_h2", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "h3_under_h2", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Intro para."}
+{"document": "h3_under_h2", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "h1_to_h3", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "### Deep\n\nText."}
+{"document": "h1_to_h3", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": null}
+{"document": "no_h1", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": null}
+{"document": "preamble", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nBody."}
+{"document": "preamble", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "preamble", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "preamble", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "preamble", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "two_h1", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nx"}
+{"document": "two_h1", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "x"}
+{"document": "two_h1", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "two_h1", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "x"}
+{"document": "two_h1", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "heading_trailing_hashes", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## Sec\n\nBody."}
+{"document": "heading_trailing_hashes", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "heading_trailing_hashes", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "Sec"}
+{"document": "heading_trailing_hashes", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "heading_trailing_hashes", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "setext", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## Sec\n\nBody."}
+{"document": "setext", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "setext", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "Sec"}
+{"document": "setext", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "setext", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "stray_asterisks", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nCompute 2 * 3 * 4 and *lit*."}
+{"document": "stray_asterisks", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Compute 2 * 3 * 4 and *lit*."}
+{"document": "stray_asterisks", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "stray_asterisks", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Compute 2 * 3 * 4 and *lit*."}
+{"document": "stray_asterisks", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "link_inline_code", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nSee the docs and `code` and strike here."}
+{"document": "link_inline_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "See the docs and `code` and strike here."}
+{"document": "link_inline_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "link_inline_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "See the docs and `code` and strike here."}
+{"document": "link_inline_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "link_inline_code", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`code`"}
+{"document": "line_breaks", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nline one line two\nline three"}
+{"document": "line_breaks", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "line one line two\nline three"}
+{"document": "line_breaks", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "line_breaks", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "line one line two\nline three"}
+{"document": "line_breaks", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "blockquote", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nquoted text\n\nAfter."}
+{"document": "blockquote", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "quoted text\n\nAfter."}
+{"document": "blockquote", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "blockquote", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "quoted text"}
+{"document": "blockquote", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "After."}
+{"document": "blockquote", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "hr_html", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "hr_html", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "multi_p", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nP0.\n\n- l\n\nP1.\n\n| a | b |\n| --- | --- |\n| 1 | 2 |\n\nP2."}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "P0.\n\n- l\n\nP1.\n\n| a | b |\n| --- | --- |\n| 1 | 2 |\n\nP2."}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "P0."}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "P1."}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- l"}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| a | b |\n| --- | --- |\n| 1 | 2 |"}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| a | b |"}
+{"document": "multi_p", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": null}
+{"document": "empty", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": null}
+{"document": "unicode_emoji", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## Sección\n\nTexto con émojis 😀 y ñ."}
+{"document": "unicode_emoji", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Texto con émojis 😀 y ñ."}
+{"document": "unicode_emoji", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "Sección"}
+{"document": "unicode_emoji", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Texto con émojis 😀 y ñ."}
+{"document": "unicode_emoji", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "list_item_code", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- item `code in item`"}
+{"document": "list_item_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- item `code in item`"}
+{"document": "list_item_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "list_item_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "list_item_code", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- item `code in item`"}
+{"document": "unclosed_fence", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n`not closed`"}
+{"document": "unclosed_fence", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "`not closed`"}
+{"document": "unclosed_fence", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "unclosed_fence", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "`not closed`"}
+{"document": "unclosed_fence", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "unclosed_fence", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`not closed`"}
+{"document": "only_heading", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S"}
+{"document": "only_heading", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": ""}
+{"document": "only_heading", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "only_heading", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "escaped_md", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nUse 5 < 6 & 7 > 3, a_b_c, and #hashtag."}
+{"document": "escaped_md", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Use 5 < 6 & 7 > 3, a_b_c, and #hashtag."}
+{"document": "escaped_md", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "escaped_md", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Use 5 < 6 & 7 > 3, a_b_c, and #hashtag."}
+{"document": "escaped_md", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:hr_only", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S"}
+{"document": "cases2:hr_only", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": ""}
+{"document": "cases2:hr_only", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:hr_only", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:html_only", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:html_only", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:plus_bullets", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n+ a\n+ b"}
+{"document": "cases2:plus_bullets", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "+ a\n+ b"}
+{"document": "cases2:plus_bullets", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:plus_bullets", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:plus_bullets", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "+ a\n+ b"}
+{"document": "cases2:paren_ordered", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n1. a\n2. b"}
+{"document": "cases2:paren_ordered", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "1. a\n2. b"}
+{"document": "cases2:paren_ordered", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:paren_ordered", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:paren_ordered", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "1. a\n2. b"}
+{"document": "cases2:table_no_pipes", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| A | B |\n| --- | --- |\n| 1 | 2 |"}
+{"document": "cases2:table_no_pipes", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| A | B |\n| --- | --- |\n| 1 | 2 |"}
+{"document": "cases2:table_no_pipes", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:table_no_pipes", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:table_no_pipes", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| A | B |\n| --- | --- |\n| 1 | 2 |"}
+{"document": "cases2:table_no_pipes", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| A | B |"}
+{"document": "cases2:table_ragged", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| A | B | C |\n| --- | --- | --- |\n| 1 | 2 |  |\n| 1 | 2 | 3 |"}
+{"document": "cases2:table_ragged", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| A | B | C |\n| --- | --- | --- |\n| 1 | 2 |  |\n| 1 | 2 | 3 |"}
+{"document": "cases2:table_ragged", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:table_ragged", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:table_ragged", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| A | B | C |\n| --- | --- | --- |\n| 1 | 2 |  |\n| 1 | 2 | 3 |"}
+{"document": "cases2:table_ragged", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| A | B | C |"}
+{"document": "cases2:two_lists", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n1. a\n2. b\n\n- c\n- d"}
+{"document": "cases2:two_lists", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "1. a\n2. b\n\n- c\n- d"}
+{"document": "cases2:two_lists", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:two_lists", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:two_lists", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "1. a\n2. b"}
+{"document": "cases2:task_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- todo\n- done"}
+{"document": "cases2:task_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- todo\n- done"}
+{"document": "cases2:task_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:task_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:task_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- todo\n- done"}
+{"document": "cases2:image", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nAfter."}
+{"document": "cases2:image", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "After."}
+{"document": "cases2:image", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:image", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": ""}
+{"document": "cases2:image", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "After."}
+{"document": "cases2:image", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:crlf", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nBody one.\n\nBody two."}
+{"document": "cases2:crlf", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body one.\n\nBody two."}
+{"document": "cases2:crlf", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:crlf", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body one."}
+{"document": "cases2:crlf", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "Body two."}
+{"document": "cases2:crlf", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:ctrl_chars", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nABC."}
+{"document": "cases2:ctrl_chars", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "ABC."}
+{"document": "cases2:ctrl_chars", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:ctrl_chars", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "ABC."}
+{"document": "cases2:ctrl_chars", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:no_blank_after_heading", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nBody line.\n\n- item"}
+{"document": "cases2:no_blank_after_heading", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body line.\n\n- item"}
+{"document": "cases2:no_blank_after_heading", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:no_blank_after_heading", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body line."}
+{"document": "cases2:no_blank_after_heading", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:no_blank_after_heading", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- item"}
+{"document": "cases2:h4", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n#### Deep"}
+{"document": "cases2:h4", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "#### Deep"}
+{"document": "cases2:h4", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:h4", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:four_backticks", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n```md\n```inner```\n```"}
+{"document": "cases2:four_backticks", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "```md\n```inner```\n```"}
+{"document": "cases2:four_backticks", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:four_backticks", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "```md\n```inner```\n```"}
+{"document": "cases2:four_backticks", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:four_backticks", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "```md\n```inner```\n```"}
+{"document": "cases2:inline_html_br", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:inline_html_br", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:list_item_multiline", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- first line continued\n- b"}
+{"document": "cases2:list_item_multiline", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- first line continued\n- b"}
+{"document": "cases2:list_item_multiline", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:list_item_multiline", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:list_item_multiline", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- first line continued\n- b"}
+{"document": "cases2:list_item_ital_bold", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- ital and **und** and **both**"}
+{"document": "cases2:list_item_ital_bold", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- ital and **und** and **both**"}
+{"document": "cases2:list_item_ital_bold", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:list_item_ital_bold", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:list_item_ital_bold", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- ital and **und** and **both**"}
+{"document": "cases2:nested_ordered", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n1. a\n\t1. a1\n2. b"}
+{"document": "cases2:nested_ordered", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "1. a\n\t1. a1\n2. b"}
+{"document": "cases2:nested_ordered", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:nested_ordered", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:nested_ordered", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "1. a\n\t1. a1\n2. b"}
+{"document": "cases2:think", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:para_trailing_spaces", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nLeading and trailing."}
+{"document": "cases2:para_trailing_spaces", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Leading and trailing."}
+{"document": "cases2:para_trailing_spaces", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:para_trailing_spaces", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Leading and trailing."}
+{"document": "cases2:para_trailing_spaces", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:emoji_heading", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## 🚀 Launch\n\nBody."}
+{"document": "cases2:emoji_heading", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "cases2:emoji_heading", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "🚀 Launch"}
+{"document": "cases2:emoji_heading", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "cases2:emoji_heading", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:table_then_text", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| a | b |\n| --- | --- |\n| 1 | 2 |\n| Not a row |  |"}
+{"document": "cases2:table_then_text", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| a | b |\n| --- | --- |\n| 1 | 2 |\n| Not a row |  |"}
+{"document": "cases2:table_then_text", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:table_then_text", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:table_then_text", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| a | b |\n| --- | --- |\n| 1 | 2 |\n| Not a row |  |"}
+{"document": "cases2:table_then_text", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| a | b |"}
+{"document": "cases2:code_in_list_selector", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- item`x`"}
+{"document": "cases2:code_in_list_selector", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- item`x`"}
+{"document": "cases2:code_in_list_selector", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:code_in_list_selector", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases2:code_in_list_selector", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- item`x`"}
+{"document": "cases2:p_with_inline_code_only", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n`only code`"}
+{"document": "cases2:p_with_inline_code_only", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "`only code`"}
+{"document": "cases2:p_with_inline_code_only", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:p_with_inline_code_only", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "`only code`"}
+{"document": "cases2:p_with_inline_code_only", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases2:p_with_inline_code_only", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`only code`"}
+{"document": "cases2:dash_hr_like_setext", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n## Text\n\nMore."}
+{"document": "cases2:dash_hr_like_setext", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": ""}
+{"document": "cases2:dash_hr_like_setext", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases2:dash_hr_like_setext", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases3:md_fence_wrapped", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nBody."}
+{"document": "cases3:md_fence_wrapped", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "cases3:md_fence_wrapped", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases3:md_fence_wrapped", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "cases3:md_fence_wrapped", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases3:md_fence_wrapped_ws", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nBody."}
+{"document": "cases3:md_fence_wrapped_ws", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "cases3:md_fence_wrapped_ws", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases3:md_fence_wrapped_ws", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "cases3:md_fence_wrapped_ws", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases3:md_short_fence", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": null}
+{"document": "cases3:md_fence_with_intro", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:hr_dash", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nAlpha.\n\nBeta."}
+{"document": "cases4:hr_dash", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Alpha.\n\nBeta."}
+{"document": "cases4:hr_dash", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:hr_dash", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Alpha."}
+{"document": "cases4:hr_dash", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "Beta."}
+{"document": "cases4:hr_dash", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:html_block", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nAlpha.\n\nhtml\n\nBeta."}
+{"document": "cases4:html_block", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Alpha.\n\nhtml\n\nBeta."}
+{"document": "cases4:html_block", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:html_block", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Alpha."}
+{"document": "cases4:html_block", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "html"}
+{"document": "cases4:html_block", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:h4", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nAlpha.\n\n#### Deep\n\nDelta."}
+{"document": "cases4:h4", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Alpha.\n\n#### Deep\n\nDelta."}
+{"document": "cases4:h4", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:h4", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Alpha."}
+{"document": "cases4:h4", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "cases4:alpha_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nA. First option\nB. Second option"}
+{"document": "cases4:alpha_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "A. First option\nB. Second option"}
+{"document": "cases4:alpha_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:alpha_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:alpha_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "A. First option\nB. Second option"}
+{"document": "cases4:alpha_para", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nA. Smith wrote this."}
+{"document": "cases4:alpha_para", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "A. Smith wrote this."}
+{"document": "cases4:alpha_para", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:alpha_para", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:alpha_para", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "A. Smith wrote this."}
+{"document": "cases4:lower_alpha_paren", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\na. one\nb. two"}
+{"document": "cases4:lower_alpha_paren", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "a. one\nb. two"}
+{"document": "cases4:lower_alpha_paren", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:lower_alpha_paren", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:lower_alpha_paren", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "a. one\nb. two"}
+{"document": "cases4:roman", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\ni. one\nii. two"}
+{"document": "cases4:roman", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "i. one\nii. two"}
+{"document": "cases4:roman", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "cases4:roman", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "cases4:roman", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "i. one\nii. two"}
+{"document": "two_paras", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nPara one.\n\nPara two."}
+{"document": "two_paras", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Para one.\n\nPara two."}
+{"document": "two_paras", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "two_paras", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Para one."}
+{"document": "two_paras", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "Para two."}
+{"document": "two_paras", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "soft_break_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- first line continued\n- second"}
+{"document": "soft_break_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- first line continued\n- second"}
+{"document": "soft_break_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "soft_break_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "soft_break_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- first line continued\n- second"}
+{"document": "lazy_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- item lazy continuation"}
+{"document": "lazy_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- item lazy continuation"}
+{"document": "lazy_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "lazy_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "lazy_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- item lazy continuation"}
+{"document": "loose_list_bold", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n1. **Step one**: do x\n2. Step two"}
+{"document": "loose_list_bold", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "1. **Step one**: do x\n2. Step two"}
+{"document": "loose_list_bold", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "loose_list_bold", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "loose_list_bold", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "1. **Step one**: do x\n2. Step two"}
+{"document": "plus_bullets", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n+ a\n+ b"}
+{"document": "plus_bullets", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "+ a\n+ b"}
+{"document": "plus_bullets", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "plus_bullets", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "plus_bullets", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "+ a\n+ b"}
+{"document": "task_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- todo\n- done"}
+{"document": "task_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- todo\n- done"}
+{"document": "task_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "task_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "task_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- todo\n- done"}
+{"document": "alpha_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nA. First option\nB. Second option"}
+{"document": "alpha_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "A. First option\nB. Second option"}
+{"document": "alpha_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "alpha_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "alpha_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "A. First option\nB. Second option"}
+{"document": "alpha_paren", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\na. first\nb. second"}
+{"document": "alpha_paren", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "a. first\nb. second"}
+{"document": "alpha_paren", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "alpha_paren", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "alpha_paren", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "a. first\nb. second"}
+{"document": "roman_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\ni. one\nii. two\niii. three"}
+{"document": "roman_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "i. one\nii. two\niii. three"}
+{"document": "roman_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "roman_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "roman_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "i. one\nii. two\niii. three"}
+{"document": "code_then_p", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nIntro.\n\n```python\nx = 1\ny = 2\n```\n\nOutro."}
+{"document": "code_then_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Intro.\n\n```python\nx = 1\ny = 2\n```\n\nOutro."}
+{"document": "code_then_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "code_then_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Intro."}
+{"document": "code_then_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "```python\nx = 1\ny = 2\n```"}
+{"document": "code_then_p", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "code_then_p", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "```python\nx = 1\ny = 2\n```"}
+{"document": "inline_code_p", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nUse `foo()` and `bar()` here.\n\n`single`"}
+{"document": "inline_code_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Use `foo()` and `bar()` here.\n\n`single`"}
+{"document": "inline_code_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "inline_code_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Use `foo()` and `bar()` here."}
+{"document": "inline_code_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "`single`"}
+{"document": "inline_code_p", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "inline_code_p", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`foo()`"}
+{"document": "image_p", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nAfter."}
+{"document": "image_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "After."}
+{"document": "image_p", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "image_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": ""}
+{"document": "image_p", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "After."}
+{"document": "image_p", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "md_fence_wrap", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nBody."}
+{"document": "md_fence_wrap", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "md_fence_wrap", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "md_fence_wrap", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Body."}
+{"document": "md_fence_wrap", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "ragged_table", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| a | b | c |\n| --- | --- | --- |\n| 1 | 2 |  |\n| 3 | 4 | 5 |"}
+{"document": "ragged_table", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| a | b | c |\n| --- | --- | --- |\n| 1 | 2 |  |\n| 3 | 4 | 5 |"}
+{"document": "ragged_table", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "ragged_table", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "ragged_table", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| a | b | c |\n| --- | --- | --- |\n| 1 | 2 |  |\n| 3 | 4 | 5 |"}
+{"document": "ragged_table", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| a | b | c |"}
+{"document": "table_trailing", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n| a | b |\n| --- | --- |\n| 1 | 2 |\n| Not a row |  |"}
+{"document": "table_trailing", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "| a | b |\n| --- | --- |\n| 1 | 2 |\n| Not a row |  |"}
+{"document": "table_trailing", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "table_trailing", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "table_trailing", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": false, "expected": "| a | b |\n| --- | --- |\n| 1 | 2 |\n| Not a row |  |"}
+{"document": "table_trailing", "selector_lst": [["h1", 0], ["h2", 0], ["data-table", 0]], "is_shallow": true, "expected": "| a | b |"}
+{"document": "html_inline", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "html_inline", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "strike_code", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nKeep gone and `kept` and **b** and i."}
+{"document": "strike_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "Keep gone and `kept` and **b** and i."}
+{"document": "strike_code", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "strike_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "Keep gone and `kept` and **b** and i."}
+{"document": "strike_code", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "strike_code", "selector_lst": [["h1", 0], ["h2", 0], ["code", 0]], "is_shallow": false, "expected": "`kept`"}
+{"document": "hard_break", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\nline a\nline b\nline c"}
+{"document": "hard_break", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "line a\nline b\nline c"}
+{"document": "hard_break", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "hard_break", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "line a\nline b\nline c"}
+{"document": "hard_break", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "nested_ordered", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n1. a\n\t1. a1\n\t2. a2\n2. b"}
+{"document": "nested_ordered", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "1. a\n\t1. a1\n\t2. a2\n2. b"}
+{"document": "nested_ordered", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "nested_ordered", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "nested_ordered", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "1. a\n\t1. a1\n\t2. a2\n2. b"}
+{"document": "list_then_para", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- x\n- y\n\nAfter list."}
+{"document": "list_then_para", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- x\n- y\n\nAfter list."}
+{"document": "list_then_para", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "list_then_para", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "After list."}
+{"document": "list_then_para", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": null}
+{"document": "list_then_para", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- x\n- y"}
+{"document": "multi_tables", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\na\n\n1\n\nMid.\n\nb\n\n2"}
+{"document": "multi_tables", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "a\n\n1\n\nMid.\n\nb\n\n2"}
+{"document": "multi_tables", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "multi_tables", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": "a"}
+{"document": "multi_tables", "selector_lst": [["h1", 0], ["h2", 0], ["p", 1]], "is_shallow": false, "expected": "1"}
+{"document": "multi_tables", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": null}
+{"document": "deep_h3", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n### Sub\n\n- l1\n\n#### Deeper"}
+{"document": "deep_h3", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "### Sub\n\n- l1\n\n#### Deeper"}
+{"document": "deep_h3", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "deep_h3", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "blank_lines_list", "selector_lst": [["h1", 0]], "is_shallow": false, "expected": "## S\n\n- a\n- b\n- c"}
+{"document": "blank_lines_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": false, "expected": "- a\n- b\n- c"}
+{"document": "blank_lines_list", "selector_lst": [["h1", 0], ["h2", 0]], "is_shallow": true, "expected": "S"}
+{"document": "blank_lines_list", "selector_lst": [["h1", 0], ["h2", 0], ["p", 0]], "is_shallow": false, "expected": null}
+{"document": "blank_lines_list", "selector_lst": [["h1", 0], ["h2", 0], ["list", 0]], "is_shallow": false, "expected": "- a\n- b\n- c"}

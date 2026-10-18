@@ -1,0 +1,156 @@
+# yaml-language-server: $schema=https://json.schemastore.org/pre-commit-config.json
+
+minimum_pre_commit_version: 2.20.0
+fail_fast: false
+default_stages:
+  - pre-commit
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        exclude: ^(docs/assets|data|tests/.*/fixtures)/
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: detect-private-key
+      - id: no-commit-to-branch
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+        exclude: alembic/README
+      - id: mixed-line-ending
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: pretty-format-json
+        args:
+          - --autofix
+          - --no-sort-keys
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: forbid-binary
+        exclude: ^docs/assets/
+      - id: git-check
+  - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+    rev: 0.2.3
+    hooks:
+      - id: yamlfmt
+        args:
+          - --mapping
+          - '2'
+          - --sequence
+          - '4'
+          - --offset
+          - '2'
+          - --width
+          - '300'
+          - --implicit_start
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: 2.1.3
+    hooks:
+      - id: pyproject-fmt
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.0
+    hooks:
+      - id: yamllint
+        name: Lint YAML files
+        args:
+          - --strict
+        exclude: k8s/
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.32.1
+    hooks:
+      - id: check-jsonschema
+        name: Validate MarkdownLint
+        files: .*\.markdownlint\.yaml
+        types:
+          - yaml
+        args:
+          - --schemafile
+          - https://json.schemastore.org/markdownlint.json
+      - id: check-jsonschema
+        name: Validate YamlLint
+        files: .*\.yamllint\.yaml
+        types:
+          - yaml
+        args:
+          - --schemafile
+          - https://json.schemastore.org/yamllint.json
+      - id: check-jsonschema
+        name: Validate Pre-commit
+        files: .*\.pre-commit-config\.yaml
+        types:
+          - yaml
+        args:
+          - --schemafile
+          - https://json.schemastore.org/pre-commit-config.json
+      - id: check-jsonschema
+        name: Validate Docker-Compose
+        files: .*docker-compose\.yml
+        types:
+          - yaml
+        args:
+          - --schemafile
+          - https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.4.1
+    hooks:
+      - id: commitizen
+        name: Lint commit message
+        stages:
+          - commit-msg
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        name: Check sh files (and patch)
+        entry: bash -eo pipefail -c 'shellcheck $@ -f diff | patch -p 1' --
+      - id: shellcheck
+        name: Check sh files (and print violations)
+  - repo: local
+    hooks:
+      - id: list-files
+        name: List files
+        language: system
+        entry: bash -c 'echo $@'
+        stages:
+          - manual
+      - id: shfmt
+        name: Format sh files
+        language: docker_image
+        entry: mvdan/shfmt:v3.8.0
+        args:
+          - -w
+          - -s
+          - -i
+          - '2'
+        types:
+          - shell
+      - id: markdownlint
+        name: Lint Markdown files
+        language: docker_image
+        entry: 06kellyjac/markdownlint-cli:0.28.1
+        args:
+          - --fix
+        types:
+          - markdown
+      - id: hadolint
+        name: Lint Dockerfiles
+        language: docker_image
+        entry: hadolint/hadolint:v2.10.0 hadolint
+        types:
+          - dockerfile
+      - id: fast-quality-checks
+        name: Fast Quality Checks
+        entry: bash -c '. .venv/bin/activate && inv lint --fix && inv formatter --fix && inv staticcheck'
+        language: system
+        pass_filenames: false
+      - id: slow-quality-checks
+        name: Slow Quality Checks
+        entry: bash -c '. .venv/bin/activate && inv unused-deps && inv test'
+        language: system
+        stages: [pre-push]
+        pass_filenames: false

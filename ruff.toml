@@ -1,0 +1,125 @@
+line-length = 120
+target-version = "py314"
+exclude = [
+".bzr",
+".direnv",
+".eggs",
+".git",
+".git-rewrite",
+".hg",
+".ipynb_checkpoints",
+".mypy_cache",
+".nox",
+".pants.d",
+".pyenv",
+".pytest_cache",
+".pytype",
+".ruff_cache",
+".svn",
+".tox",
+".venv",
+".vscode",
+"__pypackages__",
+"_build",
+"buck-out",
+"build",
+"dist",
+"node_modules",
+"site-packages",
+"venv",
+"pynguin.egg-info",
+"*.ipynb"
+]
+
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+
+[lint]
+select = [
+"A",     # flake8-builtins - Check for Python builtins being used as variables
+"ANN",   # flake8-annotations - Type annotation related rules
+"ARG",   # flake8-unused-arguments - Check for unused function arguments
+"ASYNC", # flake8-async - Async-related checks
+"B",     # flake8-bugbear - Find likely bugs and design problems
+"ISC",   # flake8-implicit-str-concat - Check string concatenation
+"F",     # pyflakes - Detect various errors
+"PIE",   # flake8-pie - Misc. linting rules
+"PERF",  # Perflint - Performance optimizations
+"PL",    # Pylint - General Python linting rules
+"RUF",   # Ruff-specific rules
+]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+fixable = [ "ALL" ]
+unfixable = [
+    "E711",   # None comparison
+    "F841",   # Local variable is assigned to but never used
+    "ARG001"  # Unused function argument
+]
+ignore = [
+# ANN - Type Annotation Rules
+"ANN001",  # Missing type annotation for function argument
+"ANN002",  # Missing type annotation for *args
+"ANN003",  # Missing type annotation for **kwargs
+"ANN201",  # Missing return type annotation for public function
+"ANN202",  # Missing return type annotation for private function
+"ANN204",  # Missing return type annotation for special method
+"ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
+
+# B - Bugbear Rules
+"B905",    # `zip()` without an explicit `strict=` parameter
+
+# F - Pyflakes Rules
+"F541",    # f-string without any placeholders
+
+# PL - Pylint Rules
+"PLW0603",  # Using the global statement to update is discouraged
+"PLR0913",  # Too many arguments in function definition
+"PLR2004",  # Magic value used in comparison, consider replacing with a constant variable
+"PLR0911",  # Too many return statements
+"PLR0915",  # Too many statements
+"PLR0912",  # Too many branches in if statement
+
+# RUF - Ruff-specific Rules
+"RUF005",  # Consider using iterable unpacking instead of concatenation
+"RUF012",  # Line too long
+"RUF013",  # Consider using a generator expression instead of a list comprehension
+"RUF100",  # Unused `noqa` directive
+"RUF022",  # `__all__` is not sorted
+"RUF023",  # PEP 484 prohibits implicit `Optional`
+"RUF010",  # Use explicit conversion flag
+]
+
+
+[lint.per-file-ignores]
+"lift_bench/hierarchical_drafting/**" = [
+    "ANN205",   # Missing return type for staticmethod
+    "ANN206",   # Missing return type for classmethod
+    "ARG001",   # Unused function argument
+    "ARG002",   # Unused method argument
+    "ARG003",   # Unused class method argument
+    "ARG004",   # Unused static method argument
+    "ASYNC230", # Blocking open in async
+    "B007",     # Loop control variable not used in body
+    "B015",     # Pointless comparison
+    "B024",     # Abstract class without abstract methods
+    "B904",     # Raise without from in except clause
+    "B027",     # Empty method in abstract class without abstract decorator
+    "ISC001",   # Implicitly concatenated string literals
+    "PERF401",  # Use list.extend
+    "PLC0415",  # Import not at top-level
+    "PLW0642",  # Reassigned cls variable in classmethod
+    "PLW2901",  # Loop variable overwritten by assignment
+]
+
+
+[lint.isort]
+combine-as-imports = true
+lines-between-types = 1
+lines-after-imports = 2
+known-first-party = ["lift_bench", "tests", "scripts"]
