@@ -1,7 +1,7 @@
 # LIFT-Bench
 
-<!-- TODO before publishing: add the paper badge once the link exists.
-     [![Paper](https://img.shields.io/badge/paper-arXiv-b31b1b.svg)](TODO) -->
+<!-- TODO before publishing: point the paper badge at the arXiv page. -->
+[![Paper](https://img.shields.io/badge/paper-arXiv-b31b1b.svg)](#citation)
 [![Dataset](https://img.shields.io/badge/dataset-HuggingFace-yellow.svg)](https://huggingface.co/datasets/ai21labs/LIFTBench)
 [![License](https://img.shields.io/badge/license-Apache%202.0-771234.svg)](LICENSE)
 
@@ -101,12 +101,24 @@ every task.
 
 ### Benchmark data
 
-> ⚠️ **TODO before publishing:** the splits are not downloadable yet. Fill in the download command below and the
-> per-split task counts (784 total) once the release location is decided.
+The splits are on the Hugging Face Hub as
+[`ai21labs/LIFTBench`](https://huggingface.co/datasets/ai21labs/LIFTBench), one config per split with a `train`
+and a `test` file each. Download them into `data/splits/`, where the commands in this README expect them:
 
 ```bash
-# TODO: download the released splits
+hf download ai21labs/LIFTBench --repo-type dataset --local-dir data/splits
 ```
+
+To work with the data outside the taskset, load it with `datasets` instead:
+
+```python
+from datasets import load_dataset
+
+bench = load_dataset("ai21labs/LIFTBench", "short_doc_few_constraints", split="test")
+```
+
+`datasets` re-encodes the rows and rounds constraint weights to 10 decimal places, which moves a task's score by
+less than 1e-9; the JSONL files hold the exact values, and the taskset reads those directly.
 
 Ten splits, from three generation runs — short outlines, long outlines, and flat. Within a run every split shares
 the same topics and outlines; only the number of constraints attached to them changes. The config behind each one
@@ -124,6 +136,9 @@ is in `configs/published_splits/`.
 | `long/numerous` | `structured_l5_d2_sh7_sv4_snv4.yaml` | ≤5 children, 2 levels | ≤7 | ≤4 / ≤4 |
 | `flat/some` | `flat_sv3_snv3.yaml` | none | — | ≤3 / ≤3 per task |
 | `flat/many` | `flat_sv5_snv5.yaml` | none | — | ≤5 / ≤5 per task |
+
+Each `test` file holds 85 tasks for a short split, 66 for a long one and 90 for a flat one, 784 in all. Each
+`train` file holds 3,681, 2,978 and 3,811 tasks respectively, 34,258 in all.
 
 **Structured** splits (`short/*`, `long/*`) carry an outline, and each constraint is attached to one leaf section
 or to a single artifact within it — a table, list or code block. **Flat** splits have no outline and every
@@ -155,8 +170,9 @@ In our experiments, training on constraints that mix judged content requirements
 the failure mode seen when training on lexical-only rewards, where answers collapse into short strings that
 satisfy the checkers and draft nothing.
 
-> ⚠️ **TODO before publishing:** no trainer config ships with this repository. Add a pointer to a working RL
-> config, or state plainly that one isn't published.
+No trainer or RL configuration is published with this repository. The taskset is the whole training interface:
+point a `verifiers`-compatible trainer at it as above, and the paper describes the training setup used for the
+reported results.
 
 ## Generating new tasks
 
@@ -295,7 +311,20 @@ Tests that need an external service are marked `integration` and skipped by defa
 
 ## Citation
 
-> ⚠️ **TODO before publishing:** add the paper link and the BibTeX entry, and wire the paper badge at the top.
+> ⚠️ **TODO before publishing:** fill in the arXiv link, authors and identifier below, and point the paper badge at
+> the top of this file to the arXiv page.
+
+The paper is at <https://arxiv.org/abs/TODO>. If you use LIFT-Bench, LIFT-Train or the pipeline, please cite:
+
+```bibtex
+@article{liftbench2026,
+  title   = {LIFT-Bench: Localized Instruction-Following Tasks},
+  author  = {TODO},
+  journal = {arXiv preprint arXiv:TODO},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/TODO}
+}
+```
 
 ## License
 
