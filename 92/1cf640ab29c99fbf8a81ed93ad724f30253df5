@@ -1,0 +1,47 @@
+run_eval.sh
+  s_5b2422735043dc::t_5d5c069da4d067 46
+tests/lift_bench/hierarchical_drafting/test_drafting_constraint_env.py
+  s_5b2422735043dc::t_cc53aafd42a8b1 4
+  s_5b2422735043dc::t_278be8af7f7fc4 31
+  s_5b2422735043dc::t_ab14113de1e867 30
+README.md
+  s_5b2422735043dc::t_7358a16f26a955 98-99
+  s_5b2422735043dc::t_ffc35183e3b27d 100-104
+  s_5b2422735043dc::t_a4ac7c649fb939 166
+scripts/evaluate_hub_splits.py
+  s_5b2422735043dc::t_cd61095e33c35d 89
+environments/drafting_constraint/drafting_constraint/__init__.py
+  s_5b2422735043dc::t_a4ac7c649fb939 1-98
+environments/drafting_constraint/pyproject.toml
+  s_5b2422735043dc::t_44071446163368 3
+  s_5b2422735043dc::t_e171e203176fc7 2,5,23-25,28
+  s_5b2422735043dc::t_e600bf9f0fb959 1,4,6-7,13-16,18-21
+  s_5b2422735043dc::t_8449674edb2565 8-12,17,22,26-27
+pyproject.toml
+  s_5b2422735043dc::t_baca2affa54ff3 131-140
+  s_5b2422735043dc::t_992f01dc415962 109-110
+tests/lift_bench/hierarchical_drafting/test_drafting_constraint_dummy_env.py
+  s_5b2422735043dc::t_13b73c8ffadf51 1
+  s_5b2422735043dc::t_ff648b78298358 7-8
+tests/lift_bench/hierarchical_drafting/conftest.py
+  s_5b2422735043dc::t_12a659d01818bc 1
+environments/drafting_constraint_dummy/pyproject.toml
+  s_5b2422735043dc::t_992bfd170ca75a 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "921cf640ab29c99fbf8a81ed93ad724f30253df5",
+  "branch": "eg/drafting-constraint-package",
+  "prompts": {},
+  "sessions": {
+    "s_5b2422735043dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6cd0460b-2150-4053-92e8-2318eb9fd469",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
