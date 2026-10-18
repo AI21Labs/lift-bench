@@ -1,0 +1,40 @@
+environments/drafting_constraint/drafting_constraint/__init__.py
+  s_5b2422735043dc::t_c2a8f209fd74c7 79-86
+  s_5b2422735043dc::t_a4ac7c649fb939 123
+  s_5b2422735043dc::t_675c5ba59fae7f 103,106-122
+  s_5b2422735043dc::t_0ab4d181a21938 12-13
+  s_5b2422735043dc::t_8111904b075d17 24
+configs/prime_rl/lift_test_mixture.toml
+  s_5b2422735043dc::t_1c0a5ffbd6cee3 2-3
+  s_5b2422735043dc::t_2541b39a307bc9 8-10,17-19,26-28,35-37,44-46
+README.md
+  s_5b2422735043dc::t_e8231fbb03acbc 96-98
+  s_5b2422735043dc::t_1b1ddc683930b4 189-191,194,197-198
+environments/drafting_constraint/pyproject.toml
+  s_5b2422735043dc::t_37bf6fabbeaa69 19
+tests/lift_bench/hierarchical_drafting/test_drafting_constraint_env.py
+  s_5b2422735043dc::t_ea517ea915defa 89-91
+  s_5b2422735043dc::t_f581785c74ef7e 57-88,92-112
+configs/prime_rl/lift_train_mixture.toml
+  s_5b2422735043dc::t_1c0a5ffbd6cee3 2-3
+  s_5b2422735043dc::t_2541b39a307bc9 9-11,19-21,29-31,39-41,49-51
+uv.lock
+  ai_agent 460,467
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "3fd78710a58b70b347ab8f0ae7e40bfb8496d11a",
+  "branch": "eg/hub-split-loading",
+  "prompts": {},
+  "sessions": {
+    "s_5b2422735043dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6cd0460b-2150-4053-92e8-2318eb9fd469",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
