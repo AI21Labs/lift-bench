@@ -1,0 +1,8 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "838b91f92d067c92d728a317ca354ab8636754d3",
+  "branch": "eg/remove-hf-dataset-card",
+  "prompts": {}
+}
