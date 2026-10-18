@@ -186,8 +186,19 @@ all. `configs/prime_rl/` holds that mixture as [prime-rl](https://github.com/Pri
 sources: `lift_train_mixture.toml` for the five `train` files and `lift_test_mixture.toml` for the matching `test`
 files. They hold nothing else, and their paths point under `data/splits` as downloaded above.
 
+prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync` in its
+checkout), install the taskset into that environment, and layer the mixture over your own prime-rl config, running
+from this repo so the `data/splits` paths resolve:
+
+```bash
+uv pip install --python <prime-rl>/.venv/bin/python -e environments/drafting_constraint
+<prime-rl>/.venv/bin/rl @ <your rl.toml> @ configs/prime_rl/lift_train_mixture.toml
+```
+
+The install only adds packages; it replaces none of prime-rl's locked ones.
+
 > [!NOTE]
-> These configs have not been run with prime-rl yet.
+> These configs pass prime-rl's `--dry-run` at commit `855a2b8`; they have not been trained with yet.
 
 ## Generating new tasks
 
