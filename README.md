@@ -79,7 +79,7 @@ keeps the per-constraint scores and ids (`agg_eval_scores`, `agg_eval_ids`).
 
 Judged constraints are scored by an LLM. Four things about it matter for a run:
 
-- **Which model.** `Qwen/Qwen2.5-32B-Instruct` for every released split. The name is written into each task
+- **Which model.** `google/gemma-4-31B-it` for every released split. The name is written into each task
   (`critic_model_name` in the constraint's `metric_args`), not chosen at eval time.
 - **How to serve it.** Through `OPENAI_BASE_URL` / `OPENAI_API_KEY` — by default the same endpoint as the model
   under test. Set `VLLM_BASE_URL` and `VLLM_API_KEY` when the model under test lives somewhere else, and the judge
@@ -163,7 +163,8 @@ PYTHONPATH=.:./environments vf-eval drafting_constraint \
 - **The judge endpoint sits in the training loop.** Every rollout's judged constraints call it, so it has to stay
   up and keep up with rollout throughput.
 - **Structured and flat splits train different regimes.** The structured splits train scoping, the flat splits the
-  IFEval-style regime. The mixture below is the one the paper trains on; change it to match what you evaluate on.
+  IFEval-style regime. The mixture below is one of the six the paper trains on; change it to match what you
+  evaluate on.
 
 In our experiments, training on constraints that mix judged content requirements with verifiable checks avoided
 the failure mode seen when training on lexical-only rewards, where answers collapse into short strings that
@@ -171,11 +172,11 @@ satisfy the checkers and draft nothing.
 
 ### Training mixture for prime-rl
 
-The paper trains on five splits, equally weighted: `short/some`, `short/many`, `long/some`, `long/many` and
-`flat/some`, 17,129 `train` tasks in all. `configs/prime_rl/` holds that mixture as
-[prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data sources: `lift_train_mixture.toml` for the five
-`train` files and `lift_test_mixture.toml` for the matching `test` files. They hold nothing else, and their paths
-point under `data/splits` as downloaded above.
+The paper compares six training mixtures; the one published here is the "flat + structured" mixture: five splits,
+equally weighted, `short/some`, `short/many`, `long/some`, `long/many` and `flat/some`, 17,129 `train` tasks in
+all. `configs/prime_rl/` holds that mixture as [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data
+sources: `lift_train_mixture.toml` for the five `train` files and `lift_test_mixture.toml` for the matching `test`
+files. They hold nothing else, and their paths point under `data/splits` as downloaded above.
 
 > [!NOTE]
 > These configs have not been run with prime-rl yet.
