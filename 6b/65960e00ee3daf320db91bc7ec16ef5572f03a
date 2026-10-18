@@ -1,0 +1,31 @@
+README.md
+  h_b21d959988e635 82
+  s_73949e8c982142::t_1c6c3bb4ee2936 166-167,176-179
+  s_73949e8c982142::t_485eb0425111d9 175
+configs/prime_rl/lift_train_mixture.toml
+  s_73949e8c982142::t_485eb0425111d9 1
+configs/prime_rl/lift_test_mixture.toml
+  s_73949e8c982142::t_45212c1c3ed2ef 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "6b65960e00ee3daf320db91bc7ec16ef5572f03a",
+  "branch": "docs/flat-structured-mixture",
+  "prompts": {},
+  "humans": {
+    "h_b21d959988e635": {
+      "author": "egoldstein <erango@ai21.com>"
+    }
+  },
+  "sessions": {
+    "s_73949e8c982142": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5dc307e9-d6c6-4b20-975b-79bc56744cf8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
