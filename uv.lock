@@ -457,12 +457,14 @@ name = "drafting-constraint"
 version = "0.1.0"
 source = { editable = "environments/drafting_constraint" }
 dependencies = [
+    { name = "huggingface-hub" },
     { name = "lift-bench" },
     { name = "verifiers" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "huggingface-hub", specifier = ">=1.16,<3" },
     { name = "lift-bench", editable = "." },
     { name = "verifiers" },
 ]

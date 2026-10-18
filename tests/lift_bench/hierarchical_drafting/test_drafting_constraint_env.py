@@ -54,6 +54,62 @@ def test_a_missing_dataset_path_is_reported(drafting_constraint):
         list(drafting_constraint.DraftingConstraintTaskset(drafting_constraint.DraftingConstraintConfig()))
 
 
+@pytest.fixture
+def hub_downloads(monkeypatch, split_path) -> list[dict]:
+    """Fake `hf_hub_download`: records each call and serves the local split file."""
+    calls: list[dict] = []
+
+    def fake_hf_hub_download(repo_id, filename, **kwargs):
+        calls.append({"repo_id": repo_id, "filename": filename, **kwargs})
+        return split_path
+
+    monkeypatch.setattr(drafting_constraint_module, "hf_hub_download", fake_hf_hub_download)
+    return calls
+
+
+def test_a_hub_split_is_downloaded_at_the_pinned_revision_and_loaded(drafting_constraint, split_path, hub_downloads):
+    config = drafting_constraint.DraftingConstraintConfig(
+        dataset_config="short_doc_some_constraints", dataset_split="train", dataset_revision="abc123"
+    )
+
+    tasks = list(drafting_constraint.DraftingConstraintTaskset(config))
+
+    assert hub_downloads == [
+        {
+            "repo_id": "ai21labs/LIFTBench",
+            "filename": "short_doc_some_constraints/train.jsonl",
+            "repo_type": "dataset",
+            "revision": "abc123",
+        }
+    ]
+    assert [task.data for task in tasks] == [task.data for task in _tasks(drafting_constraint, split_path)]
+
+
+def test_a_hub_split_without_a_revision_reads_the_default_branch(drafting_constraint, hub_downloads):
+    config = drafting_constraint.DraftingConstraintConfig(
+        dataset_config="short_doc_some_constraints", dataset_split="test"
+    )
+
+    list(drafting_constraint.DraftingConstraintTaskset(config))
+
+    assert hub_downloads[0]["revision"] is None
+
+
+@pytest.mark.parametrize(
+    "config",
+    [
+        {"dataset_path": "test.jsonl", "dataset_config": "short_doc_some_constraints", "dataset_split": "test"},
+        {"dataset_config": "short_doc_some_constraints"},
+    ],
+    ids=["both-sources", "config-without-split"],
+)
+def test_an_ambiguous_or_incomplete_split_source_is_reported(drafting_constraint, hub_downloads, config):
+    with pytest.raises(ValueError, match=re.escape("--env.taskset.dataset-")):
+        list(drafting_constraint.DraftingConstraintTaskset(drafting_constraint.DraftingConstraintConfig(**config)))
+
+    assert hub_downloads == []
+
+
 def test_tasks_are_sent_as_generated(drafting_constraint, split_path):
     (task, _) = _tasks(drafting_constraint, split_path)
 

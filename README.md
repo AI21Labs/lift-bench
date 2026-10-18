@@ -93,7 +93,9 @@ Judged constraints are scored by an LLM. Four things about it matter for a run:
 
 The `drafting_constraint` taskset (`environments/drafting_constraint`) loads a split and scores each answer with
 `constraint_reward`. Beyond the quickstart command, `--env.taskset.system-prompt <file>` adds a system prompt to
-every task.
+every task. Instead of a local file (`--env.taskset.dataset-path`), `--env.taskset.dataset-config <config>
+--env.taskset.dataset-split <train|test>` reads a split straight from the Hub dataset, and
+`--env.taskset.dataset-revision <commit>` pins which version of it.
 
 Both tasksets are packages in this repo's uv workspace, so `uv sync` installs them. To use one from another
 environment, such as a trainer's, install it from this checkout, which pulls in `lift-bench` with it:
@@ -184,15 +186,16 @@ The paper compares six training mixtures; the one published here is the "flat + 
 equally weighted, `short/some`, `short/many`, `long/some`, `long/many` and `flat/some`, 17,129 `train` tasks in
 all. `configs/prime_rl/` holds that mixture as [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data
 sources: `lift_train_mixture.toml` for the five `train` files and `lift_test_mixture.toml` for the matching `test`
-files. They hold nothing else, and their paths point under `data/splits` as downloaded above.
+files. They hold nothing else. Each source reads its split from the Hub dataset at a pinned commit
+(`env.taskset.dataset_revision`), so a run sees the same data wherever and whenever it starts, and needs no local
+download. While the dataset is private, set `HF_TOKEN` to a token with access to it.
 
 prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync` in its
-checkout), install the taskset into that environment, and layer the mixture over your own prime-rl config, running
-from this repo so the `data/splits` paths resolve:
+checkout), install the taskset into that environment, and layer the mixture over your own prime-rl config:
 
 ```bash
-uv pip install --python <prime-rl>/.venv/bin/python -e environments/drafting_constraint
-<prime-rl>/.venv/bin/rl @ <your rl.toml> @ configs/prime_rl/lift_train_mixture.toml
+uv pip install --python <prime-rl>/.venv/bin/python -e <lift-bench>/environments/drafting_constraint
+<prime-rl>/.venv/bin/rl @ <your rl.toml> @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
 ```
 
 The install only adds packages; it replaces none of prime-rl's locked ones.

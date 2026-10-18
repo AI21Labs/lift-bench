@@ -16,6 +16,7 @@ classifiers = [
 ]
 # Unpinned: the host (vf-eval, prime-rl) brings its own verifiers.
 dependencies = [
+  "huggingface-hub>=1.16,<3",
   "lift-bench",
   "verifiers",
 ]
