@@ -40,7 +40,7 @@ This repository releases:
 
 ## Quickstart
 
-Requirements: [uv](https://docs.astral.sh/uv/) (it installs Python 3.14 and the locked dependencies and runs
+Requirements: [uv](https://docs.astral.sh/uv/) (it installs Python 3.12 and the locked dependencies and runs
 `vf-eval`'s harness) and an OpenAI-compatible endpoint.
 
 ```bash

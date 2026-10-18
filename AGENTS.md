@@ -64,7 +64,7 @@ tests/
 
 ### Python Version
 
-- Python 3.14 (`requires-python = ">=3.14,<3.15"`)
+- Python 3.12 (`requires-python = ">=3.12,<3.13"`, matching prime-rl)
 
 ### Formatting
 

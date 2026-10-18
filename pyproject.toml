@@ -16,10 +16,10 @@ license-files = [
 authors = [
   { name = "AI21 Research Team" },
 ]
-requires-python = ">=3.14,<3.15"
+requires-python = ">=3.12,<3.13"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
   "dataclasses-json>=0.6.7,<0.7",
@@ -78,7 +78,7 @@ directory = "cov_html"
 directory = "coverage.xml"
 
 [tool.mypy]
-python_version = "3.14"
+python_version = "3.12"
 
 [[tool.mypy.overrides]]
 module = "lift_bench.hierarchical_drafting.*"
