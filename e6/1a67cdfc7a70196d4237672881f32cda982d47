@@ -1,0 +1,32 @@
+tasks.py
+  s_fe4a549a0de2a8::t_e0cdb5d9aafc37 60
+pyproject.toml
+  s_fe4a549a0de2a8::t_39065b45dcd231 26
+  h_b21d959988e635 17
+scripts/evaluate_hub_splits.py
+  s_fe4a549a0de2a8::t_672ac60c210196 94-95
+  s_fe4a549a0de2a8::t_99ee20dc588830 123,126
+  s_fe4a549a0de2a8::t_b3a98cd33b5c46 1-7,9-93,96-122,124-125,127-148
+  s_fe4a549a0de2a8::t_7862f3765934a5 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "e61a67cdfc7a70196d4237672881f32cda982d47",
+  "prompts": {},
+  "humans": {
+    "h_b21d959988e635": {
+      "author": "egoldstein <erango@ai21.com>"
+    }
+  },
+  "sessions": {
+    "s_fe4a549a0de2a8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75a2292a-aea2-49f7-bd36-2f988a0bea77",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
