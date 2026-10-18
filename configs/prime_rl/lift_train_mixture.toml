@@ -1,0 +1,43 @@
+# LIFT-Train mixture used in the paper, as prime-rl training sources: five splits, equally weighted.
+# Only the data sources. Not yet run with prime-rl.
+# Paths assume the splits were downloaded to data/splits (see "Benchmark data" in the README).
+
+[[orchestrator.train.source]]
+name = "short-some"
+ratio = 1
+env.taskset.id = "drafting_constraint"
+env.taskset.dataset_path = "data/splits/short_doc_some_constraints/train.jsonl"
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"
+
+[[orchestrator.train.source]]
+name = "short-many"
+ratio = 1
+env.taskset.id = "drafting_constraint"
+env.taskset.dataset_path = "data/splits/short_doc_many_constraints/train.jsonl"
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"
+
+[[orchestrator.train.source]]
+name = "long-some"
+ratio = 1
+env.taskset.id = "drafting_constraint"
+env.taskset.dataset_path = "data/splits/long_doc_some_constraints/train.jsonl"
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"
+
+[[orchestrator.train.source]]
+name = "long-many"
+ratio = 1
+env.taskset.id = "drafting_constraint"
+env.taskset.dataset_path = "data/splits/long_doc_many_constraints/train.jsonl"
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"
+
+[[orchestrator.train.source]]
+name = "flat-some"
+ratio = 1
+env.taskset.id = "drafting_constraint"
+env.taskset.dataset_path = "data/splits/flat_doc_some_constraints/train.jsonl"
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"

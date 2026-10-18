@@ -147,32 +147,38 @@ included for comparison under the same pipeline.
 
 ## Training with LIFT-Train
 
-LIFT-Train is the training counterpart: the same row format, the same scoring code, 34,258 tasks.
-`constraint_reward` returns a single scalar in `[0, 1]`, so the benchmark metric and the RL reward are the same
-number and there is no separate reward model.
+LIFT-Train is the training counterpart: the same row format and the same scoring code, 34,258 tasks across the ten
+`train` files. `constraint_reward` returns a single scalar in `[0, 1]`, so the benchmark metric and the RL reward
+are the same number and there is no separate reward model.
 
 The `drafting_constraint` taskset reads a training split the same way it reads a test one, so any
-`verifiers`-compatible trainer can use it as its environment:
+`verifiers`-compatible trainer can use it as its environment; `vf-eval` on a `train` file is a quick check that a
+split loads and scores:
 
 ```bash
 PYTHONPATH=.:./environments vf-eval drafting_constraint \
     --env.taskset.dataset-path <split>/train.jsonl ...
 ```
 
-Two things follow from that:
-
 - **The judge endpoint sits in the training loop.** Every rollout's judged constraints call it, so it has to stay
   up and keep up with rollout throughput.
 - **Structured and flat splits train different regimes.** The structured splits train scoping, the flat splits the
-  IFEval-style regime. Mix them according to what you evaluate on.
+  IFEval-style regime. The mixture below is the one the paper trains on; change it to match what you evaluate on.
 
 In our experiments, training on constraints that mix judged content requirements with verifiable checks avoided
 the failure mode seen when training on lexical-only rewards, where answers collapse into short strings that
 satisfy the checkers and draft nothing.
 
-No trainer or RL configuration is published with this repository. The taskset is the whole training interface:
-point a `verifiers`-compatible trainer at it as above, and the paper describes the training setup used for the
-reported results.
+### Training mixture for prime-rl
+
+The paper trains on five splits, equally weighted: `short/some`, `short/many`, `long/some`, `long/many` and
+`flat/some`, 17,129 `train` tasks in all. `configs/prime_rl/` holds that mixture as
+[prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data sources: `lift_train_mixture.toml` for the five
+`train` files and `lift_test_mixture.toml` for the matching `test` files. They hold nothing else, and their paths
+point under `data/splits` as downloaded above.
+
+> [!NOTE]
+> These configs have not been run with prime-rl yet.
 
 ## Generating new tasks
 
@@ -291,6 +297,7 @@ environments/
 ├── drafting_constraint/        # verifiers taskset over a split
 └── drafting_constraint_dummy/  # one-task smoke-test taskset
 configs/published_splits/       # configs behind the released splits
+configs/prime_rl/               # LIFT-Train mixture as prime-rl train / eval sources
 data/                           # seed topics (Wikipedia vital-article titles)
 docs/                           # ARCHITECTURE.md, SCORING.md, PARITY.md, diagrams
 run_eval.sh                     # local vf-eval wrapper
