@@ -1,0 +1,40 @@
+environments/drafting_constraint/pyproject.toml
+  s_5b2422735043dc::t_45e738bc436480 12
+  s_5b2422735043dc::t_6dfdc13fa3bcbc 15
+ruff.toml
+  s_5b2422735043dc::t_bafdebf06e3eef 2
+environments/drafting_constraint_dummy/pyproject.toml
+  s_5b2422735043dc::t_6dfdc13fa3bcbc 15
+  s_5b2422735043dc::t_45e738bc436480 12
+README.md
+  s_5b2422735043dc::t_a9925292a3db75 43
+AGENTS.md
+  s_5b2422735043dc::t_45e738bc436480 67
+pyproject.toml
+  s_5b2422735043dc::t_45e738bc436480 19
+  s_5b2422735043dc::t_bafdebf06e3eef 81
+  s_5b2422735043dc::t_6dfdc13fa3bcbc 22
+.python-version
+  s_5b2422735043dc::t_bafdebf06e3eef 1
+lift_bench/hierarchical_drafting/utils/inference.py
+  s_5b2422735043dc::t_bafdebf06e3eef 49
+uv.lock
+  ai_agent 3,41,46-63,73,198-209,227-242,283-297,518-533,636,785-802,878-890,1003-1020,1050-1060,1170-1180,1189-1208,1240-1246,1274-1284,1362-1368,1407-1415,1546-1562,1606-1610,1653-1659,1695-1713,1768-1773,1798,1887-1889,1898-1907,1938,1951-1966,2038-2052,2125-2130,2142-2151,2214,2261-2267,2303-2311,2541-2565,2579-2595
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "670bc84832ab2a21dc9c8cbb3bdfa7fa1cb126cf",
+  "branch": "eg/py312-support",
+  "prompts": {},
+  "sessions": {
+    "s_5b2422735043dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6cd0460b-2150-4053-92e8-2318eb9fd469",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
