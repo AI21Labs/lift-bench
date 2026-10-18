@@ -1,0 +1,32 @@
+README.md
+  s_fe4a549a0de2a8::t_9f0d672872a53e 173-175
+  s_fe4a549a0de2a8::t_35940f75c88ad3 104-106,109,113-116,118-121
+  s_fe4a549a0de2a8::t_8f11e21f3112b1 140-142
+  s_fe4a549a0de2a8::t_625029b5809ee1 314-327
+  s_fe4a549a0de2a8::t_9d240bd1ce6cd6 3-4
+  s_fe4a549a0de2a8::t_66770f90ba417b 112,117
+docs/dataset_card.md
+  s_fe4a549a0de2a8::t_b69ffd6262c1ec 196-208
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "b4e1e022f4baf441cbd61baf70bf4ebe17d4c73d",
+  "branch": "eg/first-commit",
+  "prompts": {},
+  "humans": {
+    "h_b21d959988e635": {
+      "author": "egoldstein <erango@ai21.com>"
+    }
+  },
+  "sessions": {
+    "s_fe4a549a0de2a8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75a2292a-aea2-49f7-bd36-2f988a0bea77",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
