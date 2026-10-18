@@ -116,7 +116,8 @@ and a `test` file each. Download them into `data/splits/`, where the commands in
 hf download ai21labs/LIFTBench --repo-type dataset --local-dir data/splits
 ```
 
-To work with the data outside the taskset, load it with `datasets` instead:
+To work with the data outside the taskset, load it with `datasets` (4.7 or later; lift-bench does not install it)
+instead:
 
 ```python
 from datasets import load_dataset
