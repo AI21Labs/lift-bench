@@ -193,4 +193,16 @@ of Wikipedia's vital articles, available under
 
 ## Citation
 
-<!-- TODO: add the paper's BibTeX once it is public. -->
+<!-- TODO: fill in the arXiv link, authors and identifier once the paper is public. -->
+
+The paper is at <https://arxiv.org/abs/TODO>. If you use LIFT-Bench or LIFT-Train, please cite:
+
+```bibtex
+@article{liftbench2026,
+  title   = {LIFT-Bench: Localized Instruction-Following Tasks},
+  author  = {TODO},
+  journal = {arXiv preprint arXiv:TODO},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/TODO}
+}
+```
