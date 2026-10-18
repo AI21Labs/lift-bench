@@ -2,6 +2,13 @@ version = 1
 revision = 3
 requires-python = "==3.14.*"
 
+[manifest]
+members = [
+    "drafting-constraint",
+    "drafting-constraint-dummy",
+    "lift-bench",
+]
+
 [[package]]
 name = "aiofiles"
 version = "25.1.0"
@@ -537,6 +544,36 @@ wheels = [
 ]
 
 [[package]]
+name = "drafting-constraint"
+version = "0.1.0"
+source = { editable = "environments/drafting_constraint" }
+dependencies = [
+    { name = "lift-bench" },
+    { name = "verifiers" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "lift-bench", editable = "." },
+    { name = "verifiers" },
+]
+
+[[package]]
+name = "drafting-constraint-dummy"
+version = "0.1.0"
+source = { editable = "environments/drafting_constraint_dummy" }
+dependencies = [
+    { name = "drafting-constraint" },
+    { name = "verifiers" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "drafting-constraint", editable = "environments/drafting_constraint" },
+    { name = "verifiers" },
+]
+
+[[package]]
 name = "emoji"
 version = "2.14.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1027,6 +1064,8 @@ dev = [
 ]
 test = [
     { name = "coverage" },
+    { name = "drafting-constraint" },
+    { name = "drafting-constraint-dummy" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "pytest-cov" },
@@ -1069,6 +1108,8 @@ dev = [
 ]
 test = [
     { name = "coverage", specifier = ">=7.13.5,<8" },
+    { name = "drafting-constraint", editable = "environments/drafting_constraint" },
+    { name = "drafting-constraint-dummy", editable = "environments/drafting_constraint_dummy" },
     { name = "pytest", specifier = ">=9.0.3,<10" },
     { name = "pytest-asyncio", specifier = ">=1.3.0,<2" },
     { name = "pytest-cov", specifier = ">=7.1.0,<8" },

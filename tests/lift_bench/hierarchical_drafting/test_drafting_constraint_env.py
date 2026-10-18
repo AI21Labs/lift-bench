@@ -1,6 +1,7 @@
 import json
 import re
 
+import drafting_constraint as drafting_constraint_module
 import pytest
 import verifiers.v1 as vf
 
@@ -26,8 +27,8 @@ TASKS = [
 
 
 @pytest.fixture
-def drafting_constraint(import_environment):
-    return import_environment("drafting_constraint")
+def drafting_constraint():
+    return drafting_constraint_module
 
 
 @pytest.fixture

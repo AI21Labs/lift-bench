@@ -95,6 +95,13 @@ The `drafting_constraint` taskset (`environments/drafting_constraint`) loads a s
 `constraint_reward`. Beyond the quickstart command, `--env.taskset.system-prompt <file>` adds a system prompt to
 every task.
 
+Both tasksets are packages in this repo's uv workspace, so `uv sync` installs them. To use one from another
+environment, such as a trainer's, install it from this checkout, which pulls in `lift-bench` with it:
+
+```bash
+uv pip install -e environments/drafting_constraint
+```
+
 > **Reasoning traces are not stripped.** Checks read the answer's message content as-is, assuming reasoning
 > arrived separately (e.g. your server's reasoning parser moved it to `reasoning_content`). A `<think>…</think>`
 > block left inline is scored as part of the answer.
@@ -156,7 +163,7 @@ The `drafting_constraint` taskset reads a training split the same way it reads a
 split loads and scores:
 
 ```bash
-PYTHONPATH=.:./environments vf-eval drafting_constraint \
+vf-eval drafting_constraint \
     --env.taskset.dataset-path <split>/train.jsonl ...
 ```
 

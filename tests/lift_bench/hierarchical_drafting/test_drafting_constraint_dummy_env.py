@@ -1,10 +1,11 @@
+import drafting_constraint_dummy
 import pytest
 import verifiers.v1 as vf
 
 
 @pytest.fixture
-def dummy_env(import_environment):
-    return import_environment("drafting_constraint_dummy")
+def dummy_env():
+    return drafting_constraint_dummy
 
 
 def test_the_task_keeps_exactly_its_own_evaluations(dummy_env):

@@ -5,7 +5,7 @@ each row's `prompt` is sent to the model and its `info["evaluations"]` are score
 Each trace's `info` keeps the per-evaluation scores and ids (`agg_eval_scores`, `agg_eval_ids`).
 
 Run with (see run_eval.sh for the full set of flags):
-    PYTHONPATH=.:./environments vf-eval drafting_constraint \\
+    vf-eval drafting_constraint \\
         --env.taskset.dataset-path <output_dir>/<pipeline_name>/TrainTestSplitBlock_<hash>/test.jsonl \\
         --env.agent.harness.id null --env.agent.runtime.type subprocess --no-push \\
         -m <model-name> --client.base-url <endpoint> --client.api-key-var <API_KEY_VAR>

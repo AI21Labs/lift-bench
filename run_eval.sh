@@ -43,7 +43,7 @@ NUM_EXAMPLES="${NUM_EXAMPLES:-1}"
 ROLLOUTS="${ROLLOUTS:-1}"
 ENV_ID="${ENV_ID:-drafting_constraint_dummy}"
 
-PYTHONPATH=.:./environments .venv/bin/vf-eval "${ENV_ID}" \
+.venv/bin/vf-eval "${ENV_ID}" \
   --model "${MODEL}" \
   --client.base-url "${BASE_URL}" \
   --client.api-key-var "${API_KEY_VAR}" \
