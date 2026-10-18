@@ -1,38 +1,48 @@
 # Test splits of the paper's "flat + structured" LIFT-Train mixture (lift_train_mixture.toml), as prime-rl eval sources.
-# Only the data sources. Not yet run with prime-rl.
-# Paths assume the splits were downloaded to data/splits (see "Benchmark data" in the README).
+# Only the data sources; each reads its split from the Hub dataset at a pinned commit, so it runs from any
+# directory. Needs Hub access (HF_TOKEN) while the dataset is private. Validated with --dry-run, not trained with.
 
 [[source]]
 name = "short-some"
 env.taskset.id = "drafting_constraint"
-env.taskset.dataset_path = "data/splits/short_doc_some_constraints/test.jsonl"
+env.taskset.dataset_config = "short_doc_some_constraints"
+env.taskset.dataset_split = "test"
+env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
 [[source]]
 name = "short-many"
 env.taskset.id = "drafting_constraint"
-env.taskset.dataset_path = "data/splits/short_doc_many_constraints/test.jsonl"
+env.taskset.dataset_config = "short_doc_many_constraints"
+env.taskset.dataset_split = "test"
+env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
 [[source]]
 name = "long-some"
 env.taskset.id = "drafting_constraint"
-env.taskset.dataset_path = "data/splits/long_doc_some_constraints/test.jsonl"
+env.taskset.dataset_config = "long_doc_some_constraints"
+env.taskset.dataset_split = "test"
+env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
 [[source]]
 name = "long-many"
 env.taskset.id = "drafting_constraint"
-env.taskset.dataset_path = "data/splits/long_doc_many_constraints/test.jsonl"
+env.taskset.dataset_config = "long_doc_many_constraints"
+env.taskset.dataset_split = "test"
+env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
 [[source]]
 name = "flat-some"
 env.taskset.id = "drafting_constraint"
-env.taskset.dataset_path = "data/splits/flat_doc_some_constraints/test.jsonl"
+env.taskset.dataset_config = "flat_doc_some_constraints"
+env.taskset.dataset_split = "test"
+env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"

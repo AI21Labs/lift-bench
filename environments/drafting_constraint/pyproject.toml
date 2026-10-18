@@ -1,0 +1,29 @@
+[build-system]
+build-backend = "uv_build"
+
+requires = [
+  "uv-build>=0.12,<0.13",
+]
+
+[project]
+name = "drafting-constraint"
+version = "0.1.0"
+description = "verifiers taskset that scores LIFT-Bench drafting tasks with constraint_reward."
+requires-python = ">=3.12,<3.13"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+]
+# Unpinned: the host (vf-eval, prime-rl) brings its own verifiers.
+dependencies = [
+  "huggingface-hub>=1.16,<3",
+  "lift-bench",
+  "verifiers",
+]
+
+[tool.uv.build-backend]
+module-name = "drafting_constraint"
+module-root = ""
+
+[tool.uv.sources]
+lift-bench = { workspace = true }

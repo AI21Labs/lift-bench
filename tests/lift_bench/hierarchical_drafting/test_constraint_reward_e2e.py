@@ -49,7 +49,6 @@ def trace(tmp_path_factory) -> vf.Trace:
     ]
     env = {
         **os.environ,
-        "PYTHONPATH": os.pathsep.join([str(REPO_ROOT), str(REPO_ROOT / "environments")]),
         # vLLM accepts any non-empty API key.
         _VLLM_API_KEY_VAR: os.environ.get(_VLLM_API_KEY_VAR, "EMPTY"),
     }

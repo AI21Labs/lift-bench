@@ -85,9 +85,8 @@ def run_vf_eval(dataset_path: Path, run_dir: Path, args: argparse.Namespace) -> 
         *("--env.taskset.dataset-path", str(dataset_path)),
         *("--env.taskset.judge-model", args.judge_model),
     ]
-    env = {**os.environ, "PYTHONPATH": os.pathsep.join([str(REPO_ROOT), str(REPO_ROOT / "environments")])}
     with (run_dir / "vf-eval.log").open("w") as log:
-        subprocess.run(command, env=env, cwd=REPO_ROOT, stdout=log, stderr=subprocess.STDOUT, check=True)
+        subprocess.run(command, cwd=REPO_ROOT, stdout=log, stderr=subprocess.STDOUT, check=True)
 
 
 def summarize(run_dir: Path, config: str, split: str) -> RunSummary:

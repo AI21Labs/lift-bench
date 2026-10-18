@@ -5,10 +5,12 @@ each row's `prompt` is sent to the model and its `info["evaluations"]` are score
 Each trace's `info` keeps the per-evaluation scores and ids (`agg_eval_scores`, `agg_eval_ids`).
 
 Run with (see run_eval.sh for the full set of flags):
-    PYTHONPATH=.:./environments vf-eval drafting_constraint \\
+    vf-eval drafting_constraint \\
         --env.taskset.dataset-path <output_dir>/<pipeline_name>/TrainTestSplitBlock_<hash>/test.jsonl \\
         --env.agent.harness.id null --env.agent.runtime.type subprocess --no-push \\
         -m <model-name> --client.base-url <endpoint> --client.api-key-var <API_KEY_VAR>
+Instead of a local file, `--env.taskset.dataset-config <config> --env.taskset.dataset-split <train|test>` reads a
+split of the Hub dataset (`--env.taskset.dataset-revision <commit>` pins it).
 A system prompt for every task is read from a file with `--env.taskset.system-prompt <path>`, and
 `--env.taskset.judge-model <model-name>` scores every LLM-judge check with that model instead of the one the
 split names.
@@ -19,6 +21,7 @@ from __future__ import annotations
 from typing import Any
 
 import verifiers.v1 as vf
+from huggingface_hub import hf_hub_download
 
 import lift_bench.hierarchical_drafting.metrics  # noqa: F401  (registers every metric)
 from lift_bench.hierarchical_drafting.metrics.errors import EvaluationError
@@ -73,14 +76,20 @@ class DraftingConstraintConfig(vf.TasksetConfig):
     # Optional only because vf-eval builds the config from the taskset id alone before applying CLI flags.
     dataset_path: str | None = None
     """A pipeline split JSONL (`train.jsonl` / `test.jsonl` from TrainTestSplitBlock)."""
+    dataset_config: str | None = None
+    """A config of the Hub dataset (e.g. `short_doc_some_constraints`), read instead of `dataset_path`."""
+    dataset_split: str | None = None
+    """The split of `dataset_config` to read: `train` or `test`."""
+    dataset_revision: str | None = None
+    """The Hub commit to read `dataset_config` from; the default branch when unset."""
+    dataset_repo: str = "ai21labs/LIFTBench"
+    """The Hub dataset `dataset_config` is read from."""
     judge_model: str | None = None
     """Model that scores every LLM-judge check, instead of the one each task names."""
 
 
 class DraftingConstraintTaskset(vf.Taskset[DraftingTask, DraftingConstraintConfig]):
     def load(self) -> list[DraftingTask]:
-        if self.config.dataset_path is None:
-            raise ValueError("drafting_constraint needs a split to evaluate: set --env.taskset.dataset-path")
         return [
             DraftingTask(
                 DraftingData(
@@ -91,8 +100,26 @@ class DraftingConstraintTaskset(vf.Taskset[DraftingTask, DraftingConstraintConfi
                 ),
                 self.config.task,
             )
-            for row in iter_json_lines(self.config.dataset_path)
+            for row in iter_json_lines(self._split_path())
         ]
+
+    def _split_path(self) -> str:
+        config = self.config
+        if (config.dataset_path is None) == (config.dataset_config is None):
+            raise ValueError(
+                "drafting_constraint needs exactly one split source: set --env.taskset.dataset-path, or "
+                "--env.taskset.dataset-config with --env.taskset.dataset-split"
+            )
+        if config.dataset_path is not None:
+            return config.dataset_path
+        if config.dataset_split is None:
+            raise ValueError("--env.taskset.dataset-config needs --env.taskset.dataset-split (train or test)")
+        return hf_hub_download(
+            config.dataset_repo,
+            f"{config.dataset_config}/{config.dataset_split}.jsonl",
+            repo_type="dataset",
+            revision=config.dataset_revision,
+        )
 
 
 __all__ = ["DraftingConstraintTaskset"]

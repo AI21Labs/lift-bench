@@ -1,0 +1,28 @@
+[build-system]
+build-backend = "uv_build"
+
+requires = [
+  "uv-build>=0.12,<0.13",
+]
+
+[project]
+name = "drafting-constraint-dummy"
+version = "0.1.0"
+description = "One-task verifiers taskset for smoke-testing constraint_reward."
+requires-python = ">=3.12,<3.13"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+]
+# Unpinned: the host (vf-eval, prime-rl) brings its own verifiers.
+dependencies = [
+  "drafting-constraint",
+  "verifiers",
+]
+
+[tool.uv.build-backend]
+module-name = "drafting_constraint_dummy"
+module-root = ""
+
+[tool.uv.sources]
+drafting-constraint = { workspace = true }

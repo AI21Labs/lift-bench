@@ -40,7 +40,7 @@ This repository releases:
 
 ## Quickstart
 
-Requirements: [uv](https://docs.astral.sh/uv/) (it installs Python 3.14 and the locked dependencies and runs
+Requirements: [uv](https://docs.astral.sh/uv/) (it installs Python 3.12 and the locked dependencies and runs
 `vf-eval`'s harness) and an OpenAI-compatible endpoint.
 
 ```bash
@@ -93,7 +93,16 @@ Judged constraints are scored by an LLM. Four things about it matter for a run:
 
 The `drafting_constraint` taskset (`environments/drafting_constraint`) loads a split and scores each answer with
 `constraint_reward`. Beyond the quickstart command, `--env.taskset.system-prompt <file>` adds a system prompt to
-every task.
+every task. Instead of a local file (`--env.taskset.dataset-path`), `--env.taskset.dataset-config <config>
+--env.taskset.dataset-split <train|test>` reads a split straight from the Hub dataset, and
+`--env.taskset.dataset-revision <commit>` pins which version of it.
+
+Both tasksets are packages in this repo's uv workspace, so `uv sync` installs them. To use one from another
+environment, such as a trainer's, install it from this checkout, which pulls in `lift-bench` with it:
+
+```bash
+uv pip install -e environments/drafting_constraint
+```
 
 > **Reasoning traces are not stripped.** Checks read the answer's message content as-is, assuming reasoning
 > arrived separately (e.g. your server's reasoning parser moved it to `reasoning_content`). A `<think>…</think>`
@@ -109,7 +118,8 @@ and a `test` file each. Download them into `data/splits/`, where the commands in
 hf download ai21labs/LIFTBench --repo-type dataset --local-dir data/splits
 ```
 
-To work with the data outside the taskset, load it with `datasets` instead:
+To work with the data outside the taskset, load it with `datasets` (4.7 or later; lift-bench does not install it)
+instead:
 
 ```python
 from datasets import load_dataset
@@ -156,7 +166,7 @@ The `drafting_constraint` taskset reads a training split the same way it reads a
 split loads and scores:
 
 ```bash
-PYTHONPATH=.:./environments vf-eval drafting_constraint \
+vf-eval drafting_constraint \
     --env.taskset.dataset-path <split>/train.jsonl ...
 ```
 
@@ -176,10 +186,22 @@ The paper compares six training mixtures; the one published here is the "flat + 
 equally weighted, `short/some`, `short/many`, `long/some`, `long/many` and `flat/some`, 17,129 `train` tasks in
 all. `configs/prime_rl/` holds that mixture as [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data
 sources: `lift_train_mixture.toml` for the five `train` files and `lift_test_mixture.toml` for the matching `test`
-files. They hold nothing else, and their paths point under `data/splits` as downloaded above.
+files. They hold nothing else. Each source reads its split from the Hub dataset at a pinned commit
+(`env.taskset.dataset_revision`), so a run sees the same data wherever and whenever it starts, and needs no local
+download. While the dataset is private, set `HF_TOKEN` to a token with access to it.
+
+prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync` in its
+checkout), install the taskset into that environment, and layer the mixture over your own prime-rl config:
+
+```bash
+uv pip install --python <prime-rl>/.venv/bin/python -e <lift-bench>/environments/drafting_constraint
+<prime-rl>/.venv/bin/rl @ <your rl.toml> @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
+```
+
+The install only adds packages; it replaces none of prime-rl's locked ones.
 
 > [!NOTE]
-> These configs have not been run with prime-rl yet.
+> These configs pass prime-rl's `--dry-run` at commit `855a2b8`; they have not been trained with yet.
 
 ## Generating new tasks
 

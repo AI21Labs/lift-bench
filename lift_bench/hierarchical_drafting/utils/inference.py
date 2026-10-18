@@ -46,7 +46,7 @@ def _retry_after(error: Exception) -> Optional[float]:
         return None
     try:
         return float(error.response.headers["retry-after"])
-    except KeyError, ValueError:
+    except (KeyError, ValueError):
         return None
 
 
