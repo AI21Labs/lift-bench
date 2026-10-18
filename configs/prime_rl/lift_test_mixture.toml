@@ -1,4 +1,4 @@
-# Test splits of the LIFT-Train mixture (lift_train_mixture.toml), as prime-rl eval sources.
+# Test splits of the paper's "flat + structured" LIFT-Train mixture (lift_train_mixture.toml), as prime-rl eval sources.
 # Only the data sources. Not yet run with prime-rl.
 # Paths assume the splits were downloaded to data/splits (see "Benchmark data" in the README).
 

@@ -1,4 +1,4 @@
-# LIFT-Train mixture used in the paper, as prime-rl training sources: five splits, equally weighted.
+# The paper's "flat + structured" LIFT-Train mixture, as prime-rl training sources: five splits, equally weighted.
 # Only the data sources. Not yet run with prime-rl.
 # Paths assume the splits were downloaded to data/splits (see "Benchmark data" in the README).
 
