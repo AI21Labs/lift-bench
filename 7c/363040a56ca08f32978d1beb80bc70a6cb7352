@@ -1,0 +1,23 @@
+README.md
+  s_f251577e904dd3::t_1d9b6efcb07b42 198-199,202-205,208
+  s_f251577e904dd3::t_a03166f9b54196 209
+configs/prime_rl/lift_train_mixture.toml
+  s_f251577e904dd3::t_0f65fd0cb4c218 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "7c363040a56ca08f32978d1beb80bc70a6cb7352",
+  "branch": "eg/readme-prime-rl-trained",
+  "prompts": {},
+  "sessions": {
+    "s_f251577e904dd3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "809c37d1-c572-45a4-b217-807c224f588d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
