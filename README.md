@@ -212,7 +212,7 @@ must be on `PATH`. To score with a judge other than the one each task names, add
 
 > [!NOTE]
 > At prime-rl commit `855a2b8`, `lift_train.toml` has run a short training with its evaluations, and
-> `lift_eval.toml` passes `eval --dry-run`.
+> `lift_eval.toml` has run an `eval` on 8 tasks per split (`--select.limit 8`).
 
 ## Generating new tasks
 
