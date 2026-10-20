@@ -180,7 +180,7 @@ In our experiments, training on constraints that mix judged content requirements
 the failure mode seen when training on lexical-only rewards, where answers collapse into short strings that
 satisfy the checkers and draft nothing.
 
-### Training mixture for prime-rl
+### Training and evaluating with prime-rl
 
 The paper compares six training mixtures; the one published here is the "flat + structured" mixture: five splits,
 equally weighted, `short/some`, `short/many`, `long/some`, `long/many` and `flat/some`, 17,129 `train` tasks in
@@ -195,20 +195,37 @@ Each source reads its split from the Hub dataset at a pinned commit (`env.taskse
 the same data wherever and whenever it starts, and needs no local download. While the dataset is private, set
 `HF_TOKEN` to a token with access to it.
 
-prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync` in its
-checkout), install the taskset into that environment, and run from it:
+**Setup.** prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync`
+in its checkout), then install the taskset into that environment and activate it. The install only adds packages;
+it replaces none of prime-rl's locked ones.
 
 ```bash
 uv pip install --python <prime-rl>/.venv/bin/python -e <lift-bench>/environments/drafting_constraint
 source <prime-rl>/.venv/bin/activate
-rl @ <lift-bench>/configs/prime_rl/lift_train.toml
-eval @ <lift-bench>/configs/prime_rl/lift_eval.toml --model <model>
+export OPENAI_BASE_URL=<judge endpoint> OPENAI_API_KEY=<its key>   # see "The judge"
 ```
 
-The install only adds packages; it replaces none of prime-rl's locked ones. Activate the environment rather than
-calling `.venv/bin/rl` directly: `rl` starts prime-rl's other entry points (such as `inference`) by name, so they
-must be on `PATH`. To score with a judge other than the one each task names, add
-`env.taskset.judge_model = "<model-name>"` to every source.
+Activate the environment rather than calling `.venv/bin/rl` directly: `rl` starts prime-rl's other entry points
+(such as `inference`) by name, so they must be on `PATH`. To score with a judge other than the one each task names,
+add `env.taskset.judge_model = "<model-name>"` to every source.
+
+**Train.** `rl` starts its own inference server for the policy, a trainer and the evaluations:
+
+```bash
+cd <prime-rl>
+rl @ <lift-bench>/configs/prime_rl/lift_train.toml
+```
+
+**Evaluate.** `eval` scores a model already served behind an OpenAI-compatible endpoint; it defaults to Prime
+Inference, so point it at your own server. Call it by path: a bare `eval` runs the shell builtin.
+
+```bash
+inference --vllm.model <model> &   # or any server for the model under test
+VLLM_API_KEY=<its key, if any> <prime-rl>/.venv/bin/eval @ <lift-bench>/configs/prime_rl/lift_eval.toml \
+    --model <model> --client.base-url http://localhost:8000/v1 --client.api-key-var VLLM_API_KEY
+```
+
+Add `--select.limit <n>` to evaluate only the first `n` tasks of each split.
 
 > [!NOTE]
 > At prime-rl commit `855a2b8`, `lift_train.toml` has run a short training with its evaluations, and
