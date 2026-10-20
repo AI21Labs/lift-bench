@@ -195,13 +195,18 @@ checkout), install the taskset into that environment, and layer the mixture over
 
 ```bash
 uv pip install --python <prime-rl>/.venv/bin/python -e <lift-bench>/environments/drafting_constraint
-<prime-rl>/.venv/bin/rl @ <your rl.toml> @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
+source <prime-rl>/.venv/bin/activate
+rl @ <your rl.toml> @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
 ```
 
-The install only adds packages; it replaces none of prime-rl's locked ones.
+The install only adds packages; it replaces none of prime-rl's locked ones. Activate the environment rather than
+calling `.venv/bin/rl` directly: `rl` starts prime-rl's other entry points (such as `inference`) by name, so they
+must be on `PATH`. To score with a judge other than the one each task names, add
+`env.taskset.judge_model = "<model-name>"` to every source.
 
 > [!NOTE]
-> These configs pass prime-rl's `--dry-run` at commit `855a2b8`; they have not been trained with yet.
+> At prime-rl commit `855a2b8`, the train mixture has run a 5-step training (a `Qwen/Qwen3-1.7B` policy) and the
+> test mixture passes `eval --dry-run`; it holds top-level `[[source]]` tables for prime-rl's `eval`, not `rl`.
 
 ## Generating new tasks
 
