@@ -1,0 +1,23 @@
+configs/prime_rl/smoke_rl.toml
+  s_f251577e904dd3::t_113c00ac034de0 1-22
+README.md
+  s_f251577e904dd3::t_398d3c30d3d419 207-214,216
+  s_f251577e904dd3::t_fa0ab3545a0cdd 336
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "b1793fd60af9d87d19ab3f54df86d34a55dfa7f1",
+  "branch": "eg/readme-prime-rl-trained",
+  "prompts": {},
+  "sessions": {
+    "s_f251577e904dd3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "809c37d1-c572-45a4-b217-807c224f588d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
