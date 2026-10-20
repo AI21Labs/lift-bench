@@ -184,19 +184,25 @@ satisfy the checkers and draft nothing.
 
 The paper compares six training mixtures; the one published here is the "flat + structured" mixture: five splits,
 equally weighted, `short/some`, `short/many`, `long/some`, `long/many` and `flat/some`, 17,129 `train` tasks in
-all. `configs/prime_rl/` holds that mixture as [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data
-sources: `lift_train_mixture.toml` for the five `train` files and `lift_test_mixture.toml` for the matching `test`
-files. They hold nothing else. Each source reads its split from the Hub dataset at a pinned commit
-(`env.taskset.dataset_revision`), so a run sees the same data wherever and whenever it starts, and needs no local
-download. While the dataset is private, set `HF_TOKEN` to a token with access to it.
+all. `configs/prime_rl/` holds two [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) configs for it:
+
+- `lift_train.toml` trains on the five `train` splits and evaluates on 8 tasks of each matching `test` split every
+  25 steps. Its hyperparameters (a `Qwen/Qwen3-1.7B` policy, 100 steps, two GPUs) are a small starting point, not
+  the paper's recipe; override them on the command line or in a config layered after it.
+- `lift_eval.toml` evaluates a model on the five full `test` splits with prime-rl's `eval`.
+
+Each source reads its split from the Hub dataset at a pinned commit (`env.taskset.dataset_revision`), so a run sees
+the same data wherever and whenever it starts, and needs no local download. While the dataset is private, set
+`HF_TOKEN` to a token with access to it.
 
 prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync` in its
-checkout), install the taskset into that environment, and layer the mixture over your own prime-rl config:
+checkout), install the taskset into that environment, and run from it:
 
 ```bash
 uv pip install --python <prime-rl>/.venv/bin/python -e <lift-bench>/environments/drafting_constraint
 source <prime-rl>/.venv/bin/activate
-rl @ <your rl.toml> @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
+rl @ <lift-bench>/configs/prime_rl/lift_train.toml
+eval @ <lift-bench>/configs/prime_rl/lift_eval.toml --model <model>
 ```
 
 The install only adds packages; it replaces none of prime-rl's locked ones. Activate the environment rather than
@@ -204,17 +210,9 @@ calling `.venv/bin/rl` directly: `rl` starts prime-rl's other entry points (such
 must be on `PATH`. To score with a judge other than the one each task names, add
 `env.taskset.judge_model = "<model-name>"` to every source.
 
-The mixture holds only data sources; the model, steps and batch sizes come from your config.
-`configs/prime_rl/smoke_rl.toml` is a minimal one (a `Qwen/Qwen3-1.7B` policy, 5 steps, two GPUs) for checking that
-the taskset, the Hub data and the judge work end to end before a real run:
-
-```bash
-rl @ <lift-bench>/configs/prime_rl/smoke_rl.toml @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
-```
-
 > [!NOTE]
-> At prime-rl commit `855a2b8`, the train mixture has run a 5-step training (with `smoke_rl.toml`) and the
-> test mixture passes `eval --dry-run`; it holds top-level `[[source]]` tables for prime-rl's `eval`, not `rl`.
+> At prime-rl commit `855a2b8`, `lift_train.toml` has run a short training with its evaluations, and
+> `lift_eval.toml` passes `eval --dry-run`.
 
 ## Generating new tasks
 
@@ -333,7 +331,7 @@ environments/
 ├── drafting_constraint/        # verifiers taskset over a split
 └── drafting_constraint_dummy/  # one-task smoke-test taskset
 configs/published_splits/       # configs behind the released splits
-configs/prime_rl/               # LIFT-Train mixture as prime-rl train / eval sources, and a smoke-run config
+configs/prime_rl/               # prime-rl training and evaluation configs for the LIFT-Train mixture
 data/                           # seed topics (Wikipedia vital-article titles)
 docs/                           # ARCHITECTURE.md, SCORING.md, PARITY.md, diagrams
 run_eval.sh                     # local vf-eval wrapper
