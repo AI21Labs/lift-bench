@@ -1,0 +1,21 @@
+README.md
+  s_f251577e904dd3::t_8f07282a1403d9 198-200,205-215,219-228
+  s_f251577e904dd3::t_6f151732fdf5ed 183
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "0a8784c7fd3163f51f88406661357d641a70515c",
+  "branch": "eg/readme-prime-rl-trained",
+  "prompts": {},
+  "sessions": {
+    "s_f251577e904dd3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "809c37d1-c572-45a4-b217-807c224f588d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
