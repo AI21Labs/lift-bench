@@ -204,8 +204,16 @@ calling `.venv/bin/rl` directly: `rl` starts prime-rl's other entry points (such
 must be on `PATH`. To score with a judge other than the one each task names, add
 `env.taskset.judge_model = "<model-name>"` to every source.
 
+The mixture holds only data sources; the model, steps and batch sizes come from your config.
+`configs/prime_rl/smoke_rl.toml` is a minimal one (a `Qwen/Qwen3-1.7B` policy, 5 steps, two GPUs) for checking that
+the taskset, the Hub data and the judge work end to end before a real run:
+
+```bash
+rl @ <lift-bench>/configs/prime_rl/smoke_rl.toml @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
+```
+
 > [!NOTE]
-> At prime-rl commit `855a2b8`, the train mixture has run a 5-step training (a `Qwen/Qwen3-1.7B` policy) and the
+> At prime-rl commit `855a2b8`, the train mixture has run a 5-step training (with `smoke_rl.toml`) and the
 > test mixture passes `eval --dry-run`; it holds top-level `[[source]]` tables for prime-rl's `eval`, not `rl`.
 
 ## Generating new tasks
@@ -325,7 +333,7 @@ environments/
 ├── drafting_constraint/        # verifiers taskset over a split
 └── drafting_constraint_dummy/  # one-task smoke-test taskset
 configs/published_splits/       # configs behind the released splits
-configs/prime_rl/               # LIFT-Train mixture as prime-rl train / eval sources
+configs/prime_rl/               # LIFT-Train mixture as prime-rl train / eval sources, and a smoke-run config
 data/                           # seed topics (Wikipedia vital-article titles)
 docs/                           # ARCHITECTURE.md, SCORING.md, PARITY.md, diagrams
 run_eval.sh                     # local vf-eval wrapper
