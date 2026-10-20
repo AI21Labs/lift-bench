@@ -1,0 +1,28 @@
+configs/prime_rl/lift_eval.toml
+  s_f251577e904dd3::t_f0702508afc9a9 1-3
+configs/prime_rl/lift_train.toml
+  s_f251577e904dd3::t_b1c367bd3daf23 87,97,107,117,127
+  s_f251577e904dd3::t_d79ed5be4676c9 1-25,76,81-85,88,93-95,98,103-105,108,113-115,118,123-125,128
+  s_f251577e904dd3::t_56d06dd6bd0c18 77-80,89-92,99-102,109-112,119-122,129-132
+  s_f251577e904dd3::t_2b00eb5443394c 86,96,106,116,126
+README.md
+  s_f251577e904dd3::t_b7afe7e4b784a6 187,190-196,199,204-205,214-215
+  s_f251577e904dd3::t_561705a5c5a748 189,334
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "f9e0769a8ff0515522506543f8e607936b011a2f",
+  "branch": "eg/readme-prime-rl-trained",
+  "prompts": {},
+  "sessions": {
+    "s_f251577e904dd3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "809c37d1-c572-45a4-b217-807c224f588d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
