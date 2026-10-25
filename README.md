@@ -1,7 +1,7 @@
 # LIFT-Bench
 
-<!-- TODO before publishing: point the paper badge at the arXiv page. -->
-[![Paper](https://img.shields.io/badge/paper-arXiv-b31b1b.svg)](#citation)
+[![Paper](https://img.shields.io/badge/arXiv-2610.28819-b31b1b.svg)](https://arxiv.org/abs/2610.28819)
+[![Blog](https://img.shields.io/badge/blog-AI21-blue.svg)](https://www.ai21.com/blog/lift-bench-blog/)
 [![Dataset](https://img.shields.io/badge/dataset-HuggingFace-yellow.svg)](https://huggingface.co/datasets/ai21labs/LIFTBench)
 [![License](https://img.shields.io/badge/license-Apache%202.0-771234.svg)](LICENSE)
 
@@ -341,18 +341,15 @@ Tests that need an external service are marked `integration` and skipped by defa
 
 ## Citation
 
-> ⚠️ **TODO before publishing:** fill in the arXiv link, authors and identifier below, and point the paper badge at
-> the top of this file to the arXiv page.
-
-The paper is at <https://arxiv.org/abs/TODO>. If you use LIFT-Bench, LIFT-Train or the pipeline, please cite:
+The paper is at <https://arxiv.org/abs/2610.28819>. If you use LIFT-Bench, LIFT-Train or the pipeline, please cite:
 
 ```bibtex
 @article{liftbench2026,
-  title   = {LIFT-Bench: Localized Instruction-Following Tasks},
-  author  = {TODO},
-  journal = {arXiv preprint arXiv:TODO},
+  title   = {LIFT: Scoped Constraints for Evaluating and Training Instruction Following},
+  author  = {Goldstein, Eran and Belfer, Yuval and Belinkov, Yonatan and Gissin, Daniel},
+  journal = {arXiv preprint arXiv:2610.28819},
   year    = {2026},
-  url     = {https://arxiv.org/abs/TODO}
+  url     = {https://arxiv.org/abs/2610.28819}
 }
 ```
 
