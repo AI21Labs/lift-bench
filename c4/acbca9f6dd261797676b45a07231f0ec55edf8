@@ -1,0 +1,20 @@
+.pre-commit-config.yaml
+  s_959b35fb98b6f8::t_ce7d3841fa0cad 37-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "c4acbca9f6dd261797676b45a07231f0ec55edf8",
+  "branch": "eg/gitleaks-pre-commit",
+  "prompts": {},
+  "sessions": {
+    "s_959b35fb98b6f8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "753ebf82-6054-497d-bf19-e41a00b6ee50",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
