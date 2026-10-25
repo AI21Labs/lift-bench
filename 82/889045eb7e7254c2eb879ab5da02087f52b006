@@ -1,0 +1,10 @@
+uv.lock
+  ai_agent 182,184,186,507,509,511,1333,1338,1340,1345,1347,1349,1405,1407,1409-1422,2510,2519,2521
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "82889045eb7e7254c2eb879ab5da02087f52b006",
+  "branch": "eg/fix-dependabot-lock-vulns",
+  "prompts": {}
+}
