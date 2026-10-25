@@ -1,0 +1,21 @@
+README.md
+  s_959b35fb98b6f8::t_e78df47e04347d 344,348-350,352
+  s_959b35fb98b6f8::t_af5c6053d2f214 3-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.5.4",
+  "base_commit_sha": "17da2d8bd0afc47ebc473a73d8588a5b88ddac9f",
+  "branch": "eg/readme-arxiv-blog",
+  "prompts": {},
+  "sessions": {
+    "s_959b35fb98b6f8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "753ebf82-6054-497d-bf19-e41a00b6ee50",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "egoldstein <erango@ai21.com>"
+    }
+  }
+}
