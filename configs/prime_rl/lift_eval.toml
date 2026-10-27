@@ -1,53 +1,48 @@
-# The paper's "flat + structured" LIFT-Train mixture, as prime-rl training sources: five splits, equally weighted.
-# Only the data sources; each reads its split from the Hub dataset at a pinned commit, so it runs from any
-# directory. Needs Hub access (HF_TOKEN) while the dataset is private. Validated with --dry-run, not trained with.
+# prime-rl standalone evaluation (`eval`) on the test splits of the paper's "flat + structured" LIFT-Train mixture.
+# Each split is read from the Hub dataset at a pinned commit, so it runs from any directory; needs Hub access
+# (HF_TOKEN) while the dataset is private. Name the model under test with --model.
 
-[[orchestrator.train.source]]
+[[source]]
 name = "short-some"
-ratio = 1
 env.taskset.id = "drafting_constraint"
 env.taskset.dataset_config = "short_doc_some_constraints"
-env.taskset.dataset_split = "train"
+env.taskset.dataset_split = "test"
 env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
-[[orchestrator.train.source]]
+[[source]]
 name = "short-many"
-ratio = 1
 env.taskset.id = "drafting_constraint"
 env.taskset.dataset_config = "short_doc_many_constraints"
-env.taskset.dataset_split = "train"
+env.taskset.dataset_split = "test"
 env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
-[[orchestrator.train.source]]
+[[source]]
 name = "long-some"
-ratio = 1
 env.taskset.id = "drafting_constraint"
 env.taskset.dataset_config = "long_doc_some_constraints"
-env.taskset.dataset_split = "train"
+env.taskset.dataset_split = "test"
 env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
-[[orchestrator.train.source]]
+[[source]]
 name = "long-many"
-ratio = 1
 env.taskset.id = "drafting_constraint"
 env.taskset.dataset_config = "long_doc_many_constraints"
-env.taskset.dataset_split = "train"
+env.taskset.dataset_split = "test"
 env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"
 
-[[orchestrator.train.source]]
+[[source]]
 name = "flat-some"
-ratio = 1
 env.taskset.id = "drafting_constraint"
 env.taskset.dataset_config = "flat_doc_some_constraints"
-env.taskset.dataset_split = "train"
+env.taskset.dataset_split = "test"
 env.taskset.dataset_revision = "7320d3271387297c14acd32d9584b88dccdd1f01"
 env.agent.harness.id = "null"
 env.agent.runtime.type = "subprocess"

@@ -180,28 +180,56 @@ In our experiments, training on constraints that mix judged content requirements
 the failure mode seen when training on lexical-only rewards, where answers collapse into short strings that
 satisfy the checkers and draft nothing.
 
-### Training mixture for prime-rl
+### Training and evaluating with prime-rl
 
 The paper compares six training mixtures; the one published here is the "flat + structured" mixture: five splits,
 equally weighted, `short/some`, `short/many`, `long/some`, `long/many` and `flat/some`, 17,129 `train` tasks in
-all. `configs/prime_rl/` holds that mixture as [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) data
-sources: `lift_train_mixture.toml` for the five `train` files and `lift_test_mixture.toml` for the matching `test`
-files. They hold nothing else. Each source reads its split from the Hub dataset at a pinned commit
-(`env.taskset.dataset_revision`), so a run sees the same data wherever and whenever it starts, and needs no local
-download. While the dataset is private, set `HF_TOKEN` to a token with access to it.
+all. `configs/prime_rl/` holds two [prime-rl](https://github.com/PrimeIntellect-ai/prime-rl) configs for it:
 
-prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync` in its
-checkout), install the taskset into that environment, and layer the mixture over your own prime-rl config:
+- `lift_train.toml` trains on the five `train` splits and evaluates on 8 tasks of each matching `test` split every
+  25 steps. Its hyperparameters (a `Qwen/Qwen3-1.7B` policy, 100 steps, two GPUs) are a small starting point, not
+  the paper's recipe; override them on the command line or in a config layered after it.
+- `lift_eval.toml` evaluates a model on the five full `test` splits with prime-rl's `eval`.
+
+Each source reads its split from the Hub dataset at a pinned commit (`env.taskset.dataset_revision`), so a run sees
+the same data wherever and whenever it starts, and needs no local download. While the dataset is private, set
+`HF_TOKEN` to a token with access to it.
+
+**Setup.** prime-rl hosts the taskset as a plugin: set up prime-rl as its README describes (Python 3.12, `uv sync`
+in its checkout), then install the taskset into that environment and activate it. The install only adds packages;
+it replaces none of prime-rl's locked ones.
 
 ```bash
 uv pip install --python <prime-rl>/.venv/bin/python -e <lift-bench>/environments/drafting_constraint
-<prime-rl>/.venv/bin/rl @ <your rl.toml> @ <lift-bench>/configs/prime_rl/lift_train_mixture.toml
+source <prime-rl>/.venv/bin/activate
+export OPENAI_BASE_URL=<judge endpoint> OPENAI_API_KEY=<its key>   # see "The judge"
 ```
 
-The install only adds packages; it replaces none of prime-rl's locked ones.
+Activate the environment rather than calling `.venv/bin/rl` directly: `rl` starts prime-rl's other entry points
+(such as `inference`) by name, so they must be on `PATH`. To score with a judge other than the one each task names,
+add `env.taskset.judge_model = "<model-name>"` to every source.
+
+**Train.** `rl` starts its own inference server for the policy, a trainer and the evaluations:
+
+```bash
+cd <prime-rl>
+rl @ <lift-bench>/configs/prime_rl/lift_train.toml
+```
+
+**Evaluate.** `eval` scores a model already served behind an OpenAI-compatible endpoint; it defaults to Prime
+Inference, so point it at your own server. Call it by path: a bare `eval` runs the shell builtin.
+
+```bash
+inference --vllm.model <model> &   # or any server for the model under test
+VLLM_API_KEY=<its key, if any> <prime-rl>/.venv/bin/eval @ <lift-bench>/configs/prime_rl/lift_eval.toml \
+    --model <model> --client.base-url http://localhost:8000/v1 --client.api-key-var VLLM_API_KEY
+```
+
+Add `--select.limit <n>` to evaluate only the first `n` tasks of each split.
 
 > [!NOTE]
-> These configs pass prime-rl's `--dry-run` at commit `855a2b8`; they have not been trained with yet.
+> At prime-rl commit `855a2b8`, `lift_train.toml` has run a short training with its evaluations, and
+> `lift_eval.toml` has run an `eval` on 8 tasks per split (`--select.limit 8`).
 
 ## Generating new tasks
 
@@ -320,7 +348,7 @@ environments/
 ├── drafting_constraint/        # verifiers taskset over a split
 └── drafting_constraint_dummy/  # one-task smoke-test taskset
 configs/published_splits/       # configs behind the released splits
-configs/prime_rl/               # LIFT-Train mixture as prime-rl train / eval sources
+configs/prime_rl/               # prime-rl training and evaluation configs for the LIFT-Train mixture
 data/                           # seed topics (Wikipedia vital-article titles)
 docs/                           # ARCHITECTURE.md, SCORING.md, PARITY.md, diagrams
 run_eval.sh                     # local vf-eval wrapper
