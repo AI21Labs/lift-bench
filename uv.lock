@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = "==3.12.*"
 
 [manifest]
@@ -896,6 +896,7 @@ wheels = [
 name = "lift-bench"
 version = "6.6.6"
 source = { editable = "." }
+default-groups = ["dev", "test"]
 dependencies = [
     { name = "dataclasses-json" },
     { name = "emoji" },
@@ -1100,7 +1101,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "2.0.0"
+version = "2.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -1118,22 +1119,22 @@ dependencies = [
     { name = "typing-inspection" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/74/33/32d4dff2c95bb5d897c3ef4c83649a08996b17b58f0a326d2495d4c81179/mcp-2.0.0.tar.gz", hash = "sha256:0f440e735c13ece8bb19bc62cf0b86f4313448432fbb77d35e14034f4e050728", size = 1662284, upload-time = "2026-07-28T13:45:32.346Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/31/ac54fb0fdd5b37de704486e288bba4fbbb463f24cfcfedbede407b854513/mcp-2.2.0.tar.gz", hash = "sha256:2dc37ecb1974becdcebdbf7561e7c15a07dbbf20ba21ba16c3593b3038b3afbd", size = 4084129, upload-time = "2026-09-07T16:06:23.439Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/67/72/7d7897418912c1d12e87556630dfb7bf0eac71160e9bef8b447960804ee3/mcp-2.0.0-py3-none-any.whl", hash = "sha256:1cb4c75d2d2c7b8c1d756355e5d82a39f2822cc7f13e22a2051d7ca3592349d6", size = 349980, upload-time = "2026-07-28T13:45:28.853Z" },
+    { url = "https://files.pythonhosted.org/packages/1b/ff/8e7eade68b8a28f7da0ed1085544341b51f9c935dbf6b95c76b7edfea6a0/mcp-2.2.0-py3-none-any.whl", hash = "sha256:bde982589473a060ae145e3406e9a5333fe538c97229ba841f5a7f92be004f81", size = 365656, upload-time = "2026-09-07T16:06:19.711Z" },
 ]
 
 [[package]]
 name = "mcp-types"
-version = "2.0.0"
+version = "2.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bb/56/9b8e1c152f61f6c6b07c4b5896c88c7d0ae90bac6ee6306f852fcc5c1eb0/mcp_types-2.0.0.tar.gz", hash = "sha256:d7d939b9285c9961ae8866ba75ef85da34d12bafe276efbf4eb6a131786d8379", size = 66632, upload-time = "2026-07-28T13:45:33.804Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ae/91/762d7755d971aff8a28d75f7961656148edf27875c8026e6385aaab08ae7/mcp_types-2.2.0.tar.gz", hash = "sha256:d3ed53703ddd10d9c6399f29d322bb66f3f67ab41348ac8556ba23e07fedefad", size = 65892, upload-time = "2026-09-07T16:06:25.187Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f5/4c/c78d78c3d52b0ac594ad7cc8ef5972adfe070e3597a8a4c6ce0cd39196ea/mcp_types-2.0.0-py3-none-any.whl", hash = "sha256:6b2de797ca2797f568b79529e1b25948e34de511bcc0bd82fef1039a6d1b8eb0", size = 69649, upload-time = "2026-07-28T13:45:30.713Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/d7/6ffba5d8cd5dd9b8a19478875c50e04945314ba5074e84d749283f27f62d/mcp_types-2.2.0-py3-none-any.whl", hash = "sha256:ea476b73ee86709ab5abc9452385ed36cc05907e582355622e294595c9a04f13", size = 69106, upload-time = "2026-09-07T16:06:21.461Z" },
 ]
 
 [[package]]
@@ -1341,6 +1342,24 @@ wheels = [
 ]
 
 [[package]]
+name = "orjson"
+version = "3.13.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f2/72/380b97dc45bd162d23afe5194721ef678d9eac7cfaa549fe2873f7f0a518/orjson-3.13.0.tar.gz", hash = "sha256:d1de5eb04485110c5da4c657e49168995d55e076b1ce60f1a042e254f4186c4f", size = 2732604, upload-time = "2026-10-07T14:09:25.719Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/98/17/ed65f84ed5ed6a1e06eb628611b4172e7480fc4ad92594856751a6363cac/orjson-3.13.0-cp312-cp312-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:fb8644dc6d705e1269ed2842bf4dbe2b4e50d670de503bf79d5cef3a5148a4c7", size = 223063, upload-time = "2026-10-07T14:08:21.979Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/4d/9332eb96d2e379384be0f211f543835eebc81f460c9403b84abe1294c431/orjson-3.13.0-cp312-cp312-macosx_15_0_arm64.whl", hash = "sha256:6ff2a2c67f35202f7d823753d38ad371a9b7fc297567cdfff4420e763cb9f6f8", size = 123364, upload-time = "2026-10-07T14:08:24.026Z" },
+    { url = "https://files.pythonhosted.org/packages/b4/06/558456b7da27e974a8c9ea09117b07119f6fa131cd62b8b9ecad9eea94e1/orjson-3.13.0-cp312-cp312-manylinux2014_armv7l.manylinux_2_17_armv7l.whl", hash = "sha256:65c4e0e106ccc7265b488385659117a6805c37d042f737558ecd68aa0c67ad8f", size = 113199, upload-time = "2026-10-07T14:08:25.476Z" },
+    { url = "https://files.pythonhosted.org/packages/b7/f2/1187a9c09965620348262ec0f406868f6d7c234b2e9b5ee51020bdde5748/orjson-3.13.0-cp312-cp312-manylinux2014_i686.manylinux_2_17_i686.whl", hash = "sha256:fbbad6b9b1da43f25c1f5b20cd5a268e028a2fc95d5a8d1ade6059973bc71584", size = 130329, upload-time = "2026-10-07T14:08:26.877Z" },
+    { url = "https://files.pythonhosted.org/packages/46/07/5d1a151bc11600434fe799e73abfc6a4d463d02e149a20e47c59d3a985ae/orjson-3.13.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ae1d895cf7bbfd50ef34bb63bb727b14514f259f3e3f8dd010783bd38e864c6e", size = 129072, upload-time = "2026-10-07T14:08:28.355Z" },
+    { url = "https://files.pythonhosted.org/packages/ea/8c/bb07c368abbf4021c4cd01c12edb526e00090f7f750ff1b88da6e6b6c7a6/orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bceadfd314bd238f584fc229a4bbaf0e573597e7a026dec5429fbf29fd66c641", size = 130612, upload-time = "2026-10-07T14:08:30.041Z" },
+    { url = "https://files.pythonhosted.org/packages/d2/8d/4b66d19619ed344ac000ffea7c006477d0061d580646e736ef0e203759e8/orjson-3.13.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:b74c30e56346aad067937d766846ee74c231d1d18aad3f324e9b9261de3b2d5e", size = 134632, upload-time = "2026-10-07T14:08:31.474Z" },
+    { url = "https://files.pythonhosted.org/packages/ea/88/f8221f6593e37eb26ec4706e185b9ac6f38ff0c8f7bad5459844031ffd2d/orjson-3.13.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:4329c19b8a25693f60a77b867c9d2a3ab637b20e36f5b7bea7f5acb492b44b15", size = 126807, upload-time = "2026-10-07T14:08:32.914Z" },
+    { url = "https://files.pythonhosted.org/packages/58/9d/a1ca7321eeafd7d72e174cdc388cc96301f41516d863e7b1f64f0a1735be/orjson-3.13.0-cp312-cp312-win_amd64.whl", hash = "sha256:b571236d8393edcd3236e07423f762bfcf571f852aad667a3bce9e7b755e0790", size = 121538, upload-time = "2026-10-07T14:08:34.325Z" },
+    { url = "https://files.pythonhosted.org/packages/d0/a0/1f19b4779c910104370932fceb9ed436b47ac077f297db74008062525c04/orjson-3.13.0-cp312-cp312-win_arm64.whl", hash = "sha256:8594956a75223f657e1e68c568c0eeb3dd145f02cd6b78a47fd9a8095dbc4eae", size = 126259, upload-time = "2026-10-07T14:08:35.765Z" },
+]
+
+[[package]]
 name = "packaging"
 version = "26.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1475,20 +1494,21 @@ toml = [
 
 [[package]]
 name = "prime-runs"
-version = "0.1.4"
+version = "0.1.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
+    { name = "orjson" },
     { name = "prime-traces" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6c/de/6fb503ce854315d096982b79340b02eb5a978b139a7c719d39df77e7f211/prime_runs-0.1.4.tar.gz", hash = "sha256:f06c2bc7db28f0ed99ca6b06aa5186245ca94009872eb861ab0be7cff25484bd", size = 67282, upload-time = "2026-10-08T00:23:59.354Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3b/85/78a77c31ab994605b433f9594b2dedfdd92c6e0e0c015db3a3bdcd229cad/prime_runs-0.1.5.tar.gz", hash = "sha256:feddd70d3deaf83f242747e8b845d00ef30b15a6cdc3dcc78eaa299a51d9a57b", size = 67663, upload-time = "2026-10-29T17:56:49.718Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ba/51/8f300ac057c95afa9df591172b2e8374743afdeeae300771fd78c91a5f75/prime_runs-0.1.4-py3-none-any.whl", hash = "sha256:f33b477c2d53eca08524a3d469810943eee31af8f60ceffc38ef2b9c90596d1b", size = 46253, upload-time = "2026-10-08T00:23:57.736Z" },
+    { url = "https://files.pythonhosted.org/packages/9f/a3/43c9773f431f0d7a9f3af6b4cf2c69a3ba9af7abf189f29cd2a493419ab5/prime_runs-0.1.5-py3-none-any.whl", hash = "sha256:f2bf5099a942eb254f98ffaf5c53f3fbc91b3b5a4a655914e99a4f06e5ed3ead", size = 46374, upload-time = "2026-10-29T17:56:48.14Z" },
 ]
 
 [[package]]
 name = "prime-sandboxes"
-version = "0.4.3"
+version = "0.5.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -1500,22 +1520,23 @@ dependencies = [
     { name = "pyqwest" },
     { name = "tenacity" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d8/1b/01e02c9d2346956f5ed77d269f836905a017ad796a4b4c719debd8942dc4/prime_sandboxes-0.4.3.tar.gz", hash = "sha256:a2169182f74307485c73f897e224c978eba3276133ddb40715be4d346594c487", size = 140588, upload-time = "2026-10-08T00:24:03.668Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0d/6c/ab62399b6f3caa3174ea8a29fcdce345b7410118c381a60d258c80a1ac5d/prime_sandboxes-0.5.2.tar.gz", hash = "sha256:8113f687eef702f5c09474d1547c6f240452eacfd4f72f533847f9b92d7214c8", size = 161037, upload-time = "2026-10-30T15:30:23.215Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e1/5f/d0b5cd1dabdb6e5cb1ab5d84c8ba9a96e2a9a0be8913ec9db9177c9645fb/prime_sandboxes-0.4.3-py3-none-any.whl", hash = "sha256:dd26007838c25b5d38a8b7af0514c07027b783406c0ea5b9fcf0eb74a45139bd", size = 75515, upload-time = "2026-10-08T00:24:02.208Z" },
+    { url = "https://files.pythonhosted.org/packages/3a/ee/7e6367556b2dc8b6da5b9432e89e509d33fb09cb22580822facbaee16b9c/prime_sandboxes-0.5.2-py3-none-any.whl", hash = "sha256:7a78a25e8c205da90ae39ace4b84864e40d5dd1b7e1ebdc4f4045078325b844f", size = 87340, upload-time = "2026-10-30T15:30:21.722Z" },
 ]
 
 [[package]]
 name = "prime-traces"
-version = "0.0.9"
+version = "0.0.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
+    { name = "orjson" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1e/1f/763aa4504a4ce87dbe6fedf5cce6ab7e7eee12885dacf5561828e196ca77/prime_traces-0.0.9.tar.gz", hash = "sha256:40649f5c3b2830b73eb3e4677b638ffb8cc4f9675db7a40a82173e58b4239402", size = 57524, upload-time = "2026-10-09T20:51:49.966Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e7/6c/0c1be7958d7e98b7168bcc48ce51c2743caae2daff92cab717c6b83cb331/prime_traces-0.0.11.tar.gz", hash = "sha256:a5933843e5ed2bf18279225f03539d6a85adeb86f9f906df4c8eff819f79b874", size = 60137, upload-time = "2026-10-29T17:56:49.936Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fa/39/4c84f5ce3f657ff378413b99033cf24873a17e20427f510eb3ee2a23c393/prime_traces-0.0.9-py3-none-any.whl", hash = "sha256:be7c6819c53cdab3eebe22791e7ac6ecb7e09f4ef51075a379d33f4f05c11ffb", size = 42286, upload-time = "2026-10-09T20:51:48.799Z" },
+    { url = "https://files.pythonhosted.org/packages/10/a4/82298907c004527930892f096fdb0f539434666091e898492caae65b17a4/prime_traces-0.0.11-py3-none-any.whl", hash = "sha256:eefaf69409bbf639ca4972b7248eee0dcd31b17b204aefcc7fc20204fa6b234f", size = 43734, upload-time = "2026-10-29T17:56:48.691Z" },
 ]
 
 [[package]]
@@ -1975,7 +1996,7 @@ wheels = [
 
 [[package]]
 name = "renderers"
-version = "0.1.12"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jinja2" },
@@ -1985,9 +2006,9 @@ dependencies = [
     { name = "prime-pydantic-config" },
     { name = "tiktoken" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/06/e3/4fd849811630c1df226f5501bec9f043c328594b3925bd2640fa29b17ba1/renderers-0.1.12.tar.gz", hash = "sha256:0e688605163cf891cfa3afa3ed5895dbb29360279bcf52ef1d893c74079df9e4", size = 437149, upload-time = "2026-10-12T20:42:31.173Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/84/31/3d6cd3cdf81796ad4e235ed3d3f75867b5b42a0f6c4e1c5786985387d5d3/renderers-0.2.0.tar.gz", hash = "sha256:ae9141ffd4f356506fcc3a8e9e34e84959ec59081ac5f14369bacc24555a373e", size = 465167, upload-time = "2026-10-29T00:16:47.072Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1f/34/6b652ef2cece3b2356f11a78bb31a1d52eacad35b37c534401e1a607298c/renderers-0.1.12-py3-none-any.whl", hash = "sha256:023edfc5c17583d4b9824a1a822027d2f1d63be0d8e197137a2145e0f786f37d", size = 250440, upload-time = "2026-10-12T20:42:29.437Z" },
+    { url = "https://files.pythonhosted.org/packages/02/0d/c1f43f31c60f0fb9e69f29513c86e0d11119b7279eca2261953e8e0b12cc/renderers-0.2.0-py3-none-any.whl", hash = "sha256:fbccdd8dca1dca5df758c239a13e582446b8ee47da6e0e7540c59175614f2417", size = 266449, upload-time = "2026-10-29T00:16:45.167Z" },
 ]
 
 [package.optional-dependencies]
@@ -2472,7 +2493,7 @@ wheels = [
 
 [[package]]
 name = "verifiers"
-version = "0.4.0"
+version = "0.4.1.dev133"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -2487,6 +2508,7 @@ dependencies = [
     { name = "msgpack" },
     { name = "numpy" },
     { name = "openai" },
+    { name = "orjson" },
     { name = "prime-pydantic-config", extra = ["toml"] },
     { name = "prime-runs" },
     { name = "prime-sandboxes" },
@@ -2500,9 +2522,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/dc/8f/e2f02fa39c439fcf0846417c91ff3ecb5c3eab6dd0cb3ef245ef796a0835/verifiers-0.4.0.tar.gz", hash = "sha256:66cbb1e2c1ff3fd2da8e4470d4468f2cf8464852cb2f6e9a123c1254d2960aab", size = 435641, upload-time = "2026-10-12T21:23:43.616Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/58/15/8f3430dc9641e7058ce2c4af2f1f2fa910bfb9bbdb1d4904aa5143ebe3f4/verifiers-0.4.1.dev133.tar.gz", hash = "sha256:b7bb01f7da8864a17011e872839d0040ff1527404fc4e1d24490614dae9216f7", size = 505769, upload-time = "2026-11-02T16:09:32.384Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b5/48/f926be9fc1edf1d071373c11754adb8f34d493c913b6b6035d31c39388d6/verifiers-0.4.0-py3-none-any.whl", hash = "sha256:cf73b3089c12ff1e2471130153cfa93cfe9beb8b49abfb2ceb917658d99fefe2", size = 488816, upload-time = "2026-10-12T21:23:41.87Z" },
+    { url = "https://files.pythonhosted.org/packages/4b/09/c5de9f9a0dd44f3311618ed9ec909408e7590f9533724a88b33c06e6b35b/verifiers-0.4.1.dev133-py3-none-any.whl", hash = "sha256:6c8776612f859289d02a35f7e5bedbd864c54852a85501d003f7d44312c31f4b", size = 534250, upload-time = "2026-11-02T16:09:30.373Z" },
 ]
 
 [[package]]
